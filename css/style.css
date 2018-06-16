@@ -2,64 +2,64 @@
   background-color: #333;
 }
 
+/*
+ * banner
+ */
 header {
   background-color: crimson;
-  /*background-image: url('../img/dragonrider.jpg');
-  background-size: contain;
-  resize: both;*/
   width: 100%;
   padding-bottom: 12px;
 }
 
 header h1 {
+  display: flex;
+  justify-content: center;
   color: #888;
-  font-size: 3em;
+  font-size: 4em;
   filter: drop-shadow(.08em .08em .08em #333);
-  float: left;
-  margin-left: 50px;
 }
 
-.banner-img {
-  width: 100%;
-  height: 540px;
-}
-
-.about {
-  color: #ddd;
-  margin-top: 20px;
+/*
+* main nav
+*/
+.main-nav {
+  margin-right: 10px;
   margin-left: 10px;
 }
 
-.about h3 {
-  font-size: 1.5em;
-  text-decoration: underline;
-}
-
-.about p {
-  width: 33%;
-  float: left;
-}
-
-.about p + p {
-  width: 33%;
-  margin-right: 10px;
-  float: right;
-}
-
-.main-nav {
-  display: inline-block;
-  float: right;
-  margin-right: 10px;
+.main-nav ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
 }
 
 .main-nav ul li {
-  float: left;
   text-decoration: none;
   list-style-type: none;
-  padding: 5px 10px;
-  border: 1px solid crimson;
-  border-radius: 10% 10%;
+  text-align: center;
+  font-size: 2em;
+  border: 1px solid black;
   background-color: grey;
+  padding: 0;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.main-nav ul li:last-child {
+  margin-bottom: 0;
+}
+
+/*
+* Links
+*/
+.main-nav ul li a {
+  margin: 0px;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .main-nav ul li a:link {
@@ -74,11 +74,34 @@ header h1 {
 
 .main-nav ul li a:hover {
   text-decoration: none;
-  color: tomato;
+  color: darkorange;
 }
 
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
+/*
+* image
+*/
+.banner-img {
+  width: 100%;
+  height: 240px;
+}
+
+/*
+* About section
+*/
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ddd;
+}
+
+.about h3 {
+  flex-grow: 1;
+  font-size: 2em;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.about p {
+  width: 95%;
 }

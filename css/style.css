@@ -72,7 +72,7 @@ header h1 {
 
 .main-nav ul li a:link {
   text-decoration: none;
-  color: purple;
+  color: #e099ff;
 }
 
 .main-nav ul li a:visited {
@@ -104,24 +104,45 @@ body {
 }
 
 /*
-* About section
+* Main content section
 */
-.about {
+.main-content {
   display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 90%;
+}
+
+#about,
+#contact {
+  display: flex;
+  flex-grow: 1;
   flex-direction: column;
   align-items: center;
   color: #ddd;
 }
 
-.about h3 {
+#about h3,
+#contact form h3 {
   flex-grow: 1;
   font-size: 2em;
   text-align: center;
   text-decoration: underline;
 }
 
-.about p {
+#about p {
   width: 95%;
+}
+
+#contact form {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  margin-bottom: 20px;
+}
+
+#contact form button {
+  /* make this look better */
 }
 
 /*
@@ -147,6 +168,10 @@ footer p {
 *
 *******************************/
 @media (min-width: 769px) {
+  .main-content {
+    flex-direction: row;
+  }
+
   header h1 {
     /*background-color: #841a35;*/
     color: #ccc6c3;

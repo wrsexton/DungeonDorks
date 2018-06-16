@@ -170,6 +170,7 @@ footer p {
 @media (min-width: 769px) {
   .main-content {
     flex-direction: row;
+    justify-content: space-around;
   }
 
   header h1 {

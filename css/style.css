@@ -114,24 +114,56 @@ body {
 }
 
 #about,
+#dice,
 #contact {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
   align-items: center;
   color: #ddd;
+  width: 95%;
 }
 
 #about h3,
+#dice h3,
 #contact form h3 {
-  flex-grow: 1;
   font-size: 2em;
   text-align: center;
   text-decoration: underline;
+  margin-bottom: 10px;
 }
 
 #about p {
+  margin-top: 0;
   width: 95%;
+}
+
+.dice-table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.dice-table .row {
+  display: flex;
+  justify-content: space-between;
+  width:100%;
+}
+
+.dice-table .row button {
+  width: 8em;
+  height: 2em;
+  border: 3px solid #841a35;
+  border-radius: 12%;
+}
+
+.dice-table .row span {
+  /*width: 5em;
+  height: 5em;
+  border: 3px solid #841a35;
+  color: black;
+  background-color: #ddd;
+  border-radius: 50%;*/
 }
 
 #contact form {
@@ -170,13 +202,11 @@ footer p {
 @media (min-width: 769px) {
   .main-content {
     flex-direction: row;
-    justify-content: space-around;
   }
 
   header h1 {
     /*background-color: #841a35;*/
     color: #ccc6c3;
-    flex-grow: 1;
     margin-left: 10px;
     padding-top: 10px;
   }
@@ -189,7 +219,6 @@ footer p {
 
   .main-nav ul {
     display: flex;
-    flex-grow: 1;
     flex-direction: row;
   }
 
@@ -203,6 +232,11 @@ footer p {
 
   .banner-img {
     height: 360px;
+  }
+
+  #dice {
+    margin-right: 15px;
+    margin-left: 15px;
   }
 }
 

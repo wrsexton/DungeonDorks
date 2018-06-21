@@ -8,8 +8,8 @@
     <h1>Dungeon Dorks</h1>
     <nav class="main-nav">
       <ul>
-        <li><a href="#top">Home</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#dice">Dice Roller</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -23,8 +23,41 @@
           Ability score caster level class class skill concentrate on a spell deafened elemental type enchantment fire immunity line of sight melee petrified powerful charge range increment ranged attack roll summoning subschool take 10 transitive plane will save. Abjuration attack of opportunity battle grid blinded confused craft domain creature dead ethereal falling fear cone immediate action melee attack bonus natural armor bonus nonabilities pattern subschool phantasm subschool stable strength take damage.
         </p>
       </div>
+      <div id="dice">
+        <h3>Dice Roller</h3>
+        <div class="dice-table">
+          <div class="row">
+            <button id="d4">Roll a d4</button>
+            <span id="d4-result">d4 result</span>
+          </div>
+          <div class="row">
+            <button id="d6">Roll a d6</button>
+            <span id="d6-result">d6 result</span>
+          </div>
+          <div class="row">
+            <button id="d8">Roll a d8</button>
+            <span id="d8-result">d8 result</span>
+          </div>
+          <div class="row">
+            <button id="d10">Roll a d10</button>
+            <span id="d10-result">d10 result</span>
+          </div>
+          <div class="row">
+            <button id="d12">Roll a d12</button>
+            <span id="d12-result">d12 result</span>
+          </div>
+          <div class="row">
+            <button id="d20">Roll a d20</button>
+            <span id="d20-result">d20 result</span>
+          </div>
+          <div class="row">
+            <button id="d100">Roll a d100</button>
+            <span id="d100-result">d100 result</span>
+          </div>
+        </div>
+      </div>
       <div id="contact">
-        <form action="index.html" method="post">
+        <form action="index.html#contact" method="post">
           <h3>Contact</h3>
           <label for="contact-email">Email:</label>
           <input type="email" id="contact-email" name="user-email">
@@ -40,4 +73,5 @@
       &copy 2018
     </p>
   </footer>
+  <script src="scripts/dice.js"></script>
 </html>

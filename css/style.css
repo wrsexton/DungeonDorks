@@ -15,7 +15,6 @@ header {
 }
 
 header h1 {
-  /*background-color: #333;*/
   width: 100%;
   margin: 0;
   text-align: center;
@@ -89,10 +88,7 @@ header h1 {
 *  body
 */
 body {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  margin: 0;
+  background-color: #333;
 }
 
 /*
@@ -114,7 +110,7 @@ body {
 }
 
 #about,
-#dice,
+#tools,
 #contact {
   display: flex;
   flex-grow: 1;
@@ -125,7 +121,7 @@ body {
 }
 
 #about h3,
-#dice h3,
+#tools h3,
 #contact form h3 {
   font-size: 2em;
   text-align: center;
@@ -138,32 +134,18 @@ body {
   width: 95%;
 }
 
+.dice-collapse,
+.dice-table .row button  {
+  width: 16rem;
+}
+
 .dice-table {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+  display: none;
+  padding : 5px;
 }
 
-.dice-table .row {
-  display: flex;
-  justify-content: space-between;
-  width:100%;
-}
-
-.dice-table .row button {
-  width: 8em;
-  height: 2em;
-  border: 3px solid #841a35;
-  border-radius: 12%;
-}
-
-.dice-table .row span {
-  /*width: 5em;
-  height: 5em;
-  border: 3px solid #841a35;
-  color: black;
-  background-color: #ddd;
-  border-radius: 50%;*/
+.dice-table .row button .result {
+  width: 3rem;
 }
 
 #contact form {
@@ -234,7 +216,7 @@ footer p {
     height: 360px;
   }
 
-  #dice {
+  #tools {
     margin-right: 15px;
     margin-left: 15px;
   }

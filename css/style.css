@@ -167,7 +167,8 @@ footer p {
 *
 ***************************************/
 @media (min-width: 769px) {
-  .main-content {
+  .main-content-info {
+    display: flex;
     flex-direction: row;
   }
 
@@ -205,6 +206,18 @@ footer p {
 }
 
 @media (min-width: 1025px) {
+  .main-window {
+    max-width:1256px;
+    margin: auto;
+  }
+  .main-content {
+    flex-direction: row;
+  }
+
+  .main-content-info {
+    flex-direction: column;
+  }
+
   header {
     flex-direction: row;
   }

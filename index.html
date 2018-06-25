@@ -18,143 +18,149 @@
         href="css/style.css">
     <title>Dungeon Dorks</title>
   </head>
-  <header>
-    <!-- Page Heading Text -->
-    <h1 class="page-header mt-2">Dungeon Dorks</h1>
-    <!-- Navigation -->
-    <nav class="main-nav">
-      <ul>
-        <!-- 'autofocus' class used for looping tab focus from bottom-most element -->
-        <li><a id="autofocus" class="btn btn-secondary" href="#about">About</a></li>
-        <li><a class="btn btn-secondary" href="#tools">Tools</a></li>
-        <li><a class="btn btn-secondary" href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
   <body>
+    <header>
+      <!-- Page Heading Text -->
+      <h1 class="page-header mt-2">Dungeon Dorks</h1>
+      <!-- Navigation -->
+      <nav class="main-nav">
+        <ul>
+          <!-- 'autofocus' class used for looping tab focus from bottom-most element -->
+          <li><a id="autofocus" class="btn btn-secondary" href="#about">About</a></li>
+          <li><a class="btn btn-secondary" href="#tools">Tools</a></li>
+          <li><a class="btn btn-secondary" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
     <!-- Banner Image -->
-    <img class="banner-img" src="img/dragonrider.jpg" alt="A knight riging a dragon">
-    <!-- Main Content -->
-    <div class="main-content">
-      <!-- About Section -->
-      <div id="about" class="mb-4">
-        <h3>About</h3>
-        <p>
-          Ability score caster level class class skill concentrate on a spell deafened elemental type enchantment fire immunity line of sight melee petrified powerful charge range increment ranged attack roll summoning subschool take 10 transitive plane will save. Abjuration attack of opportunity battle grid blinded confused craft domain creature dead ethereal falling fear cone immediate action melee attack bonus natural armor bonus nonabilities pattern subschool phantasm subschool stable strength take damage.
-        </p>
-      </div>
-      <!-- Tools Section -->
-      <div id="tools" class="mb-4">
-        <h3>Tools</h3>
-        <!-- Dice Roller -->
-        <div class="dice-roller">
-            <!-- Dice Roller Collapse Button -->
-            <div class="dice-collapse btn btn-outline-light mx-auto" tabindex="0">
-              <span>Dice Roller</span>
-            </div>
-            <!-- Dice Roller Table -->
-            <div class="container dice-table">
-              <!-- d4 -->
-              <div class="row">
-                <button id="d4" class="btn btn-outline-light mx-auto">
-                  <div class="d-flex justify-content-between">
-                    Roll a d4
-                    <span id="d4-result" class="result badge badge-light text-center">
-                      ?
-                    </span>
-                  </div>
-                </button>
+    <img class="banner-img" src="img/dragonrider.jpg" alt="A knight riding a dragon">
+    <!-- Main Window -->
+    <div class="main-window">
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Info Section -->
+        <div class="main-content-info">
+          <!-- About Section -->
+          <div id="about" class="mb-4">
+            <h3>About</h3>
+            <p>
+              Ability score caster level class class skill concentrate on a spell deafened elemental type enchantment fire immunity line of sight melee petrified powerful charge range increment ranged attack roll summoning subschool take 10 transitive plane will save. Abjuration attack of opportunity battle grid blinded confused craft domain creature dead ethereal falling fear cone immediate action melee attack bonus natural armor bonus nonabilities pattern subschool phantasm subschool stable strength take damage.
+            </p>
+          </div> <!-- End About Section -->
+          <!-- Contact Section -->
+          <div id="contact" class="mb-4">
+            <form action="index.html#contact" method="post">
+              <h3>Contact</h3>
+              <label for="contact-email">Email:</label>
+              <input type="email" id="contact-email" name="user-email">
+              <label for="contact-user-message">Message:</label>
+              <textarea id="contact-user-message" name="message"></textarea>
+              <button class="btn btn-outline-light" type="submit">Submit</button>
+            </form>
+          </div> <!-- End Contact Section -->
+        </div> <!-- End Info Section -->
+        <!-- Tools Section -->
+        <div id="tools" class="mb-4">
+          <h3>Tools</h3>
+          <!-- Dice Roller -->
+          <div class="dice-roller">
+              <!-- Dice Roller Collapse Button -->
+              <div class="dice-collapse btn btn-outline-light mx-auto" tabindex="0">
+                <span>Dice Roller</span>
               </div>
-              <!-- d6 -->
-              <div class="row">
-                <button id="d6" class="btn btn-outline-light mx-auto">
-                  <div class="d-flex justify-content-between">
-                    Roll a d6
-                    <span id="d6-result" class="result badge badge-light text-center">
-                      ?
-                    </span>
-                  </div>
-                </button>
-              </div>
-              <!-- d8 -->
-              <div class="row">
-                <button id="d8" class="btn btn-outline-light mx-auto">
-                  <div class="d-flex justify-content-between">
-                    Roll a d8
-                    <span id="d8-result" class="result badge badge-light text-center">
-                      ?
-                    </span>
-                  </div>
-                </button>
-              </div>
-              <!-- d10 -->
-              <div class="row">
-                <button id="d10" class="btn btn-outline-light mx-auto">
-                  <div class="d-flex justify-content-between">
-                    Roll a d10
-                    <span id="d10-result" class="result badge badge-light text-center">
-                      ?
-                    </span>
-                  </div>
-                </button>
-              </div>
-              <!-- d12 -->
-              <div class="row">
-                <button id="d12" class="btn btn-outline-light mx-auto">
-                  <div class="d-flex justify-content-between">
-                    Roll a d12
-                    <span id="d12-result" class="result badge badge-light text-center">
-                      ?
-                    </span>
-                  </div>
-                </button>
-              </div>
-              <!-- d20 -->
-              <div class="row">
-                <button id="d20" class="btn btn-outline-light mx-auto">
-                  <div class="d-flex justify-content-between">
-                    Roll a d20
-                    <span id="d20-result" class="result badge badge-light text-center">
-                      ?
-                    </span>
-                  </div>
-                </button>
-              </div>
-              <!-- d100 -->
-              <div class="row">
-                <button id="d100" class="btn btn-outline-light mx-auto">
-                  <div class="d-flex justify-content-between">
-                    Roll a d100
-                    <span id="d100-result" class="result badge badge-light text-center">
-                      ?
-                    </span>
-                  </div>
-                </button>
-              </div>
-            </div> <!-- End Dice Roller Table -->
-        </div> <!-- End Dice Roller -->
-      </div> <!-- End Tools Section -->
-      <!-- Contact Section -->
-      <div id="contact" class="mb-4">
-        <form action="index.html#contact" method="post">
-          <h3>Contact</h3>
-          <label for="contact-email">Email:</label>
-          <input type="email" id="contact-email" name="user-email">
-          <label for="contact-user-message">Message:</label>
-          <textarea id="contact-user-message" name="message"></textarea>
-          <button class="btn btn-outline-light" type="submit">Submit</button>
-        </form>
-      </div>
-    </div>
-    <!-- Used for looping tab focus -->
-    <div tabindex="0" onFocus="document.querySelector('#autofocus').focus()"></div>
+              <!-- Dice Roller Table -->
+              <div class="container dice-table">
+                <!-- d4 -->
+                <div class="row">
+                  <button id="d4" class="btn btn-outline-light mx-auto">
+                    <div class="d-flex justify-content-between">
+                      Roll a d4
+                      <span id="d4-result" class="result badge badge-light text-center">
+                        ?
+                      </span>
+                    </div>
+                  </button>
+                </div>
+                <!-- d6 -->
+                <div class="row">
+                  <button id="d6" class="btn btn-outline-light mx-auto">
+                    <div class="d-flex justify-content-between">
+                      Roll a d6
+                      <span id="d6-result" class="result badge badge-light text-center">
+                        ?
+                      </span>
+                    </div>
+                  </button>
+                </div>
+                <!-- d8 -->
+                <div class="row">
+                  <button id="d8" class="btn btn-outline-light mx-auto">
+                    <div class="d-flex justify-content-between">
+                      Roll a d8
+                      <span id="d8-result" class="result badge badge-light text-center">
+                        ?
+                      </span>
+                    </div>
+                  </button>
+                </div>
+                <!-- d10 -->
+                <div class="row">
+                  <button id="d10" class="btn btn-outline-light mx-auto">
+                    <div class="d-flex justify-content-between">
+                      Roll a d10
+                      <span id="d10-result" class="result badge badge-light text-center">
+                        ?
+                      </span>
+                    </div>
+                  </button>
+                </div>
+                <!-- d12 -->
+                <div class="row">
+                  <button id="d12" class="btn btn-outline-light mx-auto">
+                    <div class="d-flex justify-content-between">
+                      Roll a d12
+                      <span id="d12-result" class="result badge badge-light text-center">
+                        ?
+                      </span>
+                    </div>
+                  </button>
+                </div>
+                <!-- d20 -->
+                <div class="row">
+                  <button id="d20" class="btn btn-outline-light mx-auto">
+                    <div class="d-flex justify-content-between">
+                      Roll a d20
+                      <span id="d20-result" class="result badge badge-light text-center">
+                        ?
+                      </span>
+                    </div>
+                  </button>
+                </div>
+                <!-- d100 -->
+                <div class="row">
+                  <button id="d100" class="btn btn-outline-light mx-auto">
+                    <div class="d-flex justify-content-between">
+                      Roll a d100
+                      <span id="d100-result" class="result badge badge-light text-center">
+                        ?
+                      </span>
+                    </div>
+                  </button>
+                </div>
+              </div> <!-- End Dice Roller Table -->
+          </div> <!-- End Dice Roller -->
+        </div> <!-- End Tools Section -->
+      </div> <!-- End Main Content -->
+      <!-- Used for looping tab focus -->
+      <div tabindex="0" onFocus="document.querySelector('#autofocus').focus()"></div>
+    </div> <!-- End Main Window -->
+    <!-- Footer -->
+    <footer>
+      <p>
+        &copy 2018
+      </p>
+    </footer>
   </body>
-  <!-- Footer -->
-  <footer>
-    <p>
-      &copy 2018
-    </p>
-  </footer>
   <!-- My Javascript -->
   <!-- Dice Roller Javascript -->
   <script src="scripts/dice.js"></script>

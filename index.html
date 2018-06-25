@@ -20,11 +20,11 @@
   </head>
   <header>
     <!-- Page Heading Text -->
-    <h1 class="page-header">Dungeon Dorks</h1>
+    <h1 class="page-header mt-2">Dungeon Dorks</h1>
     <!-- Navigation -->
     <nav class="main-nav">
       <ul>
-        <li><a class="btn btn-secondary" href="#about">About</a></li>
+        <li><a id="autofocus" class="btn btn-secondary" href="#about">About</a></li>
         <li><a class="btn btn-secondary" href="#tools">Tools</a></li>
         <li><a class="btn btn-secondary" href="#contact">Contact</a></li>
       </ul>
@@ -32,7 +32,7 @@
   </header>
   <body>
     <!-- Banner Image -->
-    <img class="banner-img" src="img/dragonrider.jpg" alt="Dragon">
+    <img class="banner-img" src="img/dragonrider.jpg" alt="A knight riging a dragon">
     <!-- Main Content -->
     <div class="main-content">
       <!-- About Section -->
@@ -48,7 +48,7 @@
         <!-- Dice Roller -->
         <div class="dice-roller">
             <!-- Dice Roller Collapse Button -->
-            <div class="dice-collapse btn btn-outline-light mx-auto">
+            <div class="dice-collapse btn btn-outline-light mx-auto" tabindex="0">
               <span>Dice Roller</span>
             </div>
             <!-- Dice Roller Table -->
@@ -141,10 +141,11 @@
           <input type="email" id="contact-email" name="user-email">
           <label for="contact-user-message">Message:</label>
           <textarea id="contact-user-message" name="message"></textarea>
-          <button type="submit">Submit</button>
+          <button class="btn btn-outline-light" type="submit">Submit</button>
         </form>
       </div>
     </div>
+    <div tabindex="0" onFocus="document.querySelector('#autofocus').focus()"></div>
   </body>
   <!-- Footer -->
   <footer>

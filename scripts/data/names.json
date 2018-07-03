@@ -1,0 +1,32 @@
+[
+  {
+    "name":"Gunthir",
+    "race":"dwarf",
+    "gender":"m",
+    "anthroponymy":"first"
+  },
+  {
+    "name":"Stonehammer",
+    "race":"dwarf",
+    "gender":"ngc",
+    "anthroponymy":"last"
+  },
+  {
+    "name":"Fiona",
+    "race":"dwarf",
+    "gender":"f",
+    "anthroponymy":"first"
+  },
+  {
+    "name":"Yggsvard",
+    "race":"dwarf",
+    "gender":"ngc",
+    "anthroponymy":"first"
+  },
+  {
+    "name":"Gembeard",
+    "race":"dwarf",
+    "gender":"ngc",
+    "anthroponymy":"last"
+  }
+]

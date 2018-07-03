@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- CDNs -->
-    <!-- jquery -->
-    <script
-			  src="https://code.jquery.com/jquery-3.3.1.min.js"
-			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-			  crossorigin="anonymous"></script>
-    <!-- bootstrap -->
+    <!-- bootstrap CSS CDN -->
     <link
         rel="stylesheet"
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
@@ -19,6 +13,65 @@
     <title>Dungeon Dorks</title>
   </head>
   <body>
+    <!-- Modals -->
+    <!-- Fantasy Name Modal -->
+    <div id="modalTool" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content custom-modal-content">
+          <div class="modal-header custom-modal-header">
+            <h5 id="modalToolTitle" class="modal-title">Random Fantasy Names</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span style="color:white;" aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Fantasy Name Randomizer form -->
+            <form id="name-form" class="custom-modal-body">
+              <!-- Fantasy Name Randomizer race radio buttons -->
+              <label class="custom-modal-label" for="name-race">Race</label>
+              <div id="name-race" class="form-group">
+                <div class="radio">
+                  <label><input type="radio" name="radio-race" value="">Any</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="radio-race" value="human">Human</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="radio-race" value="elf">Elf</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="radio-race" value="dwarf">Dwarf</label>
+                </div>
+              </div> <!-- End race radio buttons -->
+              <!-- Fantasy Name Randomizer gender radio buttons -->
+              <label class="custom-modal-label" for="name-gender">Gender</label>
+              <div id="name-gender" class="form-group">
+                <div class="radio">
+                  <label><input type="radio" name="radio-gender" value="">Any</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="radio-gender" value="m">Male</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="radio-gender" value="f">Female</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="radio-gender" value="ngc">Non-Gender-Conforming</label>
+                </div>
+              </div> <!-- End race radio buttons -->
+              <!-- Fantasy Name Randomizer button -->
+              <button id="name-randomizer" type="button" class="btn btn-outline-light">Generate</button>
+              <!-- Fantasy Name Randomizer result -->
+              <p id="name-randomizer-result">?</p>
+            </form> <!-- End Fantasy Name Randomizer form -->
+          </div>
+          <div class="modal-footer custom-modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div> <!-- End Modal 1 -->
+    <!-- End Modals -->
     <header>
       <!-- Page Heading Text -->
       <h1 class="page-header mt-2">Dungeon Dorks</h1>
@@ -149,6 +202,12 @@
                 </div>
               </div> <!-- End Dice Roller Table -->
           </div> <!-- End Dice Roller -->
+          <div class="fantasy-name-randomizer">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#modalTool">
+              Fantasy Name Randomizer
+            </button>
+          </div>
         </div> <!-- End Tools Section -->
       </div> <!-- End Main Content -->
       <!-- Used for looping tab focus -->
@@ -160,8 +219,19 @@
         &copy 2018
       </p>
     </footer>
+    <!-- jquery CDN -->
+    <script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+    <!-- bootstrap JS CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <!-- My Javascript -->
+    <!-- Dice Roller Javascript -->
+    <script src="scripts/dice.js"></script>
+    <!-- Fantasy Name Randomizer Javascript -->
+    <script src="scripts/fantasy-names.js"></script>
   </body>
-  <!-- My Javascript -->
-  <!-- Dice Roller Javascript -->
-  <script src="scripts/dice.js"></script>
 </html>

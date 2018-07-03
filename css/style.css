@@ -8,6 +8,63 @@
 }
 
 /**************************************
+*  Body
+***************************************/
+body {
+  background-color: #333;
+}
+
+/**************************************
+* Modals
+***************************************/
+.custom-modal-content {
+  background-color: #777;
+  color: #ccc6c3;
+}
+
+.custom-modal-header,
+.custom-modal-footer {
+  background-color: #841a35;
+}
+
+.custom-modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.custom-modal-label {
+  font-size: 1.75em;
+}
+
+.custom-modal-label,
+#name-race,
+#name-gender {
+  border-bottom: solid 1px #841a35;
+  text-align: center;
+  width: 100%;
+}
+
+#name-race,
+#name-gender {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+#name-randomizer {
+  width: 75%;
+}
+
+#name-randomizer-result {
+  font-size: 2em;
+  margin-top: 0.2em;
+  margin-bottom: 0;
+}
+
+/**************************************
 * Header
 ***************************************/
 header {
@@ -68,13 +125,6 @@ header h1 {
 }
 
 /**************************************
-*  Body
-***************************************/
-body {
-  background-color: #333;
-}
-
-/**************************************
 * Banner Image
 ***************************************/
 .banner-img {
@@ -119,8 +169,7 @@ body {
   width: 95%;
 }
 
-.dice-collapse,
-.dice-table .row button  {
+#tools div {
   width: 16rem;
 }
 
@@ -132,16 +181,15 @@ body {
 .dice-table .row button .result {
   width: 3rem;
 }
+.fantasy-name-randomizer button {
+  width: 100%;
+}
 
 #contact form {
   display: flex;
   flex-direction: column;
   width: 95%;
   margin-bottom: 20px;
-}
-
-#contact form button {
-  /* make this look better */
 }
 
 /**************************************

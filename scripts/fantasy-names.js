@@ -287,5 +287,7 @@ function getFullFantasyName(race, gender) {
 $('#name-randomizer').on('click', function(e){
   let race = $('input[name=radio-race]:checked', '#name-race').val();
   let gender = $('input[name=radio-gender]:checked', '#name-gender').val();
+  race = (race === undefined) ? '' : race;
+  gender = (gender === undefined) ? '' : gender;
   $('#name-randomizer-result').text(getFullFantasyName(race,gender));
 });

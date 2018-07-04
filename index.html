@@ -14,12 +14,39 @@
   </head>
   <body>
     <!-- Modals -->
-    <!-- Fantasy Name Modal -->
-    <div id="modalTool" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <!-- Contact Modal -->
+    <div id="modal-contact" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content custom-modal-content">
           <div class="modal-header custom-modal-header">
-            <h5 id="modalToolTitle" class="modal-title">Random Fantasy Names</h5>
+            <h5 id="modal-contact-title" class="modal-title">Contact</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span style="color:white;" aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Contact form -->
+            <form id="contact-form" class="custom-modal-body">
+              <h3>Contact</h3>
+              <label for="contact-email">Email:</label>
+              <input type="email" id="contact-email" name="user-email">
+              <label for="contact-user-message">Message:</label>
+              <textarea id="contact-user-message" name="message"></textarea>
+              <button class="btn btn-outline-light" type="submit">Submit</button>
+            </form> <!-- End Contact form -->
+          </div>
+          <div class="modal-footer custom-modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div> <!-- End Contact Modal -->
+    <!-- Fantasy Name Randomizer Modal -->
+    <div id="modal-name" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content custom-modal-content">
+          <div class="modal-header custom-modal-header">
+            <h5 id="modal-name-title" class="modal-title">Random Fantasy Names</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span style="color:white;" aria-hidden="true">&times;</span>
             </button>
@@ -31,7 +58,7 @@
               <label class="custom-modal-label" for="name-race">Race</label>
               <div id="name-race" class="form-group">
                 <div class="radio">
-                  <label><input type="radio" name="radio-race" value="">Any</label>
+                  <label><input type="radio" name="radio-race" value="" checked="checked">Any</label>
                 </div>
                 <div class="radio">
                   <label><input type="radio" name="radio-race" value="human">Human</label>
@@ -47,7 +74,7 @@
               <label class="custom-modal-label" for="name-gender">Gender</label>
               <div id="name-gender" class="form-group">
                 <div class="radio">
-                  <label><input type="radio" name="radio-gender" value="">Any</label>
+                  <label><input type="radio" name="radio-gender" value="" checked="checked">Any</label>
                 </div>
                 <div class="radio">
                   <label><input type="radio" name="radio-gender" value="m">Male</label>
@@ -70,29 +97,29 @@
           </div>
         </div>
       </div>
-    </div> <!-- End Modal 1 -->
+    </div> <!-- End Fantasy Name Randomizer Modal -->
     <!-- End Modals -->
-    <header>
-      <!-- Page Heading Text -->
-      <h1 class="page-header mt-2">Dungeon Dorks</h1>
-      <!-- Navigation -->
-      <nav class="main-nav">
-        <ul>
-          <!-- 'autofocus' class used for looping tab focus from bottom-most element -->
-          <li><a id="autofocus" class="btn btn-secondary" href="#about">About</a></li>
-          <li><a class="btn btn-secondary" href="#tools">Tools</a></li>
-          <li><a class="btn btn-secondary" href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-    <!-- Banner Image -->
-    <img class="banner-img" src="img/dragonrider.jpg" alt="A knight riding a dragon">
-    <!-- Main Window -->
-    <div class="main-window">
-      <!-- Main Content -->
-      <div class="main-content">
-        <!-- Info Section -->
-        <div class="main-content-info">
+    <!-- Begin Non-Modal content -->
+    <div class="non-modal">
+      <header>
+        <!-- Page Heading Text -->
+        <h1 class="page-header mt-2">Dungeon Dorks</h1>
+        <!-- Navigation -->
+        <nav class="main-nav">
+          <ul>
+            <!-- 'autofocus' class used for looping tab focus from bottom-most element -->
+            <li><a id="autofocus" class="btn btn-secondary" href="#about">About</a></li>
+            <li><a class="btn btn-secondary" href="#tools">Tools</a></li>
+            <li><a id="modal-contact-launch" class="btn btn-secondary" tabindex=0 data-toggle="modal" data-target="#modal-contact" style="color: white;">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      <!-- Banner Image -->
+      <img class="banner-img" src="img/dragonrider.jpg" alt="A knight riding a dragon">
+      <!-- Main Window -->
+      <div class="main-window">
+        <!-- Main Content -->
+        <div class="main-content">
           <!-- About Section -->
           <div id="about" class="mb-4">
             <h3>About</h3>
@@ -100,125 +127,114 @@
               Ability score caster level class class skill concentrate on a spell deafened elemental type enchantment fire immunity line of sight melee petrified powerful charge range increment ranged attack roll summoning subschool take 10 transitive plane will save. Abjuration attack of opportunity battle grid blinded confused craft domain creature dead ethereal falling fear cone immediate action melee attack bonus natural armor bonus nonabilities pattern subschool phantasm subschool stable strength take damage.
             </p>
           </div> <!-- End About Section -->
-          <!-- Contact Section -->
-          <div id="contact" class="mb-4">
-            <form action="index.html#contact" method="post">
-              <h3>Contact</h3>
-              <label for="contact-email">Email:</label>
-              <input type="email" id="contact-email" name="user-email">
-              <label for="contact-user-message">Message:</label>
-              <textarea id="contact-user-message" name="message"></textarea>
-              <button class="btn btn-outline-light" type="submit">Submit</button>
-            </form>
-          </div> <!-- End Contact Section -->
-        </div> <!-- End Info Section -->
-        <!-- Tools Section -->
-        <div id="tools" class="mb-4">
-          <h3>Tools</h3>
-          <!-- Dice Roller -->
-          <div class="dice-roller">
-              <!-- Dice Roller Collapse Button -->
-              <div class="dice-collapse btn btn-outline-light mx-auto" tabindex="0">
-                <span>Dice Roller</span>
-              </div>
-              <!-- Dice Roller Table -->
-              <div class="container dice-table">
-                <!-- d4 -->
-                <div class="row">
-                  <button id="d4" class="btn btn-outline-light mx-auto">
-                    <div class="d-flex justify-content-between">
-                      Roll a d4
-                      <span id="d4-result" class="result badge badge-light text-center">
-                        ?
-                      </span>
-                    </div>
-                  </button>
+          <!-- Tools Section -->
+          <div id="tools" class="mb-4">
+            <h3>Tools</h3>
+            <!-- Dice Roller -->
+            <div class="dice-roller">
+                <!-- Dice Roller Collapse Button -->
+                <div class="dice-collapse btn btn-outline-light mx-auto" tabindex="0">
+                  <span>Dice Roller</span>
                 </div>
-                <!-- d6 -->
-                <div class="row">
-                  <button id="d6" class="btn btn-outline-light mx-auto">
-                    <div class="d-flex justify-content-between">
-                      Roll a d6
-                      <span id="d6-result" class="result badge badge-light text-center">
-                        ?
-                      </span>
-                    </div>
-                  </button>
-                </div>
-                <!-- d8 -->
-                <div class="row">
-                  <button id="d8" class="btn btn-outline-light mx-auto">
-                    <div class="d-flex justify-content-between">
-                      Roll a d8
-                      <span id="d8-result" class="result badge badge-light text-center">
-                        ?
-                      </span>
-                    </div>
-                  </button>
-                </div>
-                <!-- d10 -->
-                <div class="row">
-                  <button id="d10" class="btn btn-outline-light mx-auto">
-                    <div class="d-flex justify-content-between">
-                      Roll a d10
-                      <span id="d10-result" class="result badge badge-light text-center">
-                        ?
-                      </span>
-                    </div>
-                  </button>
-                </div>
-                <!-- d12 -->
-                <div class="row">
-                  <button id="d12" class="btn btn-outline-light mx-auto">
-                    <div class="d-flex justify-content-between">
-                      Roll a d12
-                      <span id="d12-result" class="result badge badge-light text-center">
-                        ?
-                      </span>
-                    </div>
-                  </button>
-                </div>
-                <!-- d20 -->
-                <div class="row">
-                  <button id="d20" class="btn btn-outline-light mx-auto">
-                    <div class="d-flex justify-content-between">
-                      Roll a d20
-                      <span id="d20-result" class="result badge badge-light text-center">
-                        ?
-                      </span>
-                    </div>
-                  </button>
-                </div>
-                <!-- d100 -->
-                <div class="row">
-                  <button id="d100" class="btn btn-outline-light mx-auto">
-                    <div class="d-flex justify-content-between">
-                      Roll a d100
-                      <span id="d100-result" class="result badge badge-light text-center">
-                        ?
-                      </span>
-                    </div>
-                  </button>
-                </div>
-              </div> <!-- End Dice Roller Table -->
-          </div> <!-- End Dice Roller -->
-          <div class="fantasy-name-randomizer">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#modalTool">
-              Fantasy Name Randomizer
-            </button>
-          </div>
-        </div> <!-- End Tools Section -->
-      </div> <!-- End Main Content -->
-      <!-- Used for looping tab focus -->
-      <div tabindex="0" onFocus="document.querySelector('#autofocus').focus()"></div>
-    </div> <!-- End Main Window -->
-    <!-- Footer -->
-    <footer>
-      <p>
-        &copy 2018
-      </p>
-    </footer>
+                <!-- Dice Roller Table -->
+                <div class="container dice-table">
+                  <!-- d4 -->
+                  <div class="row">
+                    <button id="d4" class="btn btn-outline-light mx-auto">
+                      <div class="d-flex justify-content-between">
+                        Roll a d4
+                        <span id="d4-result" class="result badge badge-light text-center">
+                          ?
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                  <!-- d6 -->
+                  <div class="row">
+                    <button id="d6" class="btn btn-outline-light mx-auto">
+                      <div class="d-flex justify-content-between">
+                        Roll a d6
+                        <span id="d6-result" class="result badge badge-light text-center">
+                          ?
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                  <!-- d8 -->
+                  <div class="row">
+                    <button id="d8" class="btn btn-outline-light mx-auto">
+                      <div class="d-flex justify-content-between">
+                        Roll a d8
+                        <span id="d8-result" class="result badge badge-light text-center">
+                          ?
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                  <!-- d10 -->
+                  <div class="row">
+                    <button id="d10" class="btn btn-outline-light mx-auto">
+                      <div class="d-flex justify-content-between">
+                        Roll a d10
+                        <span id="d10-result" class="result badge badge-light text-center">
+                          ?
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                  <!-- d12 -->
+                  <div class="row">
+                    <button id="d12" class="btn btn-outline-light mx-auto">
+                      <div class="d-flex justify-content-between">
+                        Roll a d12
+                        <span id="d12-result" class="result badge badge-light text-center">
+                          ?
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                  <!-- d20 -->
+                  <div class="row">
+                    <button id="d20" class="btn btn-outline-light mx-auto">
+                      <div class="d-flex justify-content-between">
+                        Roll a d20
+                        <span id="d20-result" class="result badge badge-light text-center">
+                          ?
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                  <!-- d100 -->
+                  <div class="row">
+                    <button id="d100" class="btn btn-outline-light mx-auto">
+                      <div class="d-flex justify-content-between">
+                        Roll a d100
+                        <span id="d100-result" class="result badge badge-light text-center">
+                          ?
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div> <!-- End Dice Roller Table -->
+            </div> <!-- End Dice Roller -->
+            <div class="fantasy-name-randomizer">
+              <!-- Button trigger modal -->
+              <button id=name-randomizer-launch type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#modal-name">
+                Fantasy Name Randomizer
+              </button>
+            </div>
+          </div> <!-- End Tools Section -->
+        </div> <!-- End Main Content -->
+        <!-- Used for looping tab focus -->
+        <div tabindex="0" onFocus="document.querySelector('#autofocus').focus()"></div>
+      </div> <!-- End Main Window -->
+      <!-- Footer -->
+      <footer>
+        <p>
+          &copy 2018
+        </p>
+      </footer>
+    </div> <!-- End Non-Modal content -->
     <!-- jquery CDN -->
     <script
 			  src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -233,5 +249,7 @@
     <script src="scripts/dice.js"></script>
     <!-- Fantasy Name Randomizer Javascript -->
     <script src="scripts/fantasy-names.js"></script>
+    <!-- Bootstrap Modal re-style (and kinda fix...) Javascript -->
+    <script src="scripts/modal-style.js"></script>
   </body>
 </html>

@@ -20,6 +20,7 @@ body {
 .custom-modal-content {
   background-color: #777;
   color: #ccc6c3;
+  border: solid white 1px;
 }
 
 .custom-modal-header,
@@ -36,6 +37,13 @@ body {
 
 .custom-modal-label {
   font-size: 1.75em;
+}
+
+#contact-form label,
+#contact-form input,
+#contact-form textarea,
+#contact-form button {
+  width: 90%;
 }
 
 .custom-modal-label,
@@ -145,8 +153,7 @@ header h1 {
 }
 
 #about,
-#tools,
-#contact {
+#tools {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
@@ -156,8 +163,7 @@ header h1 {
 }
 
 #about h3,
-#tools h3,
-#contact form h3 {
+#tools h3 {
   font-size: 2em;
   text-align: center;
   text-decoration: underline;
@@ -185,13 +191,6 @@ header h1 {
   width: 100%;
 }
 
-#contact form {
-  display: flex;
-  flex-direction: column;
-  width: 95%;
-  margin-bottom: 20px;
-}
-
 /**************************************
 *  Footer
 ***************************************/
@@ -215,11 +214,6 @@ footer p {
 *
 ***************************************/
 @media (min-width: 769px) {
-  .main-content-info {
-    display: flex;
-    flex-direction: row;
-  }
-
   header h1 {
     color: #ccc6c3;
     margin-left: 10px;
@@ -247,6 +241,10 @@ footer p {
     height: 360px;
   }
 
+  .main-content {
+    flex-direction: row;
+  }
+
   #tools {
     margin-right: 15px;
     margin-left: 15px;
@@ -257,13 +255,6 @@ footer p {
   .main-window {
     max-width:1256px;
     margin: auto;
-  }
-  .main-content {
-    flex-direction: row;
-  }
-
-  .main-content-info {
-    flex-direction: column;
   }
 
   header {

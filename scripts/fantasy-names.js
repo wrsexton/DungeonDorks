@@ -247,23 +247,14 @@ const fantasyNames = $.parseJSON(myNameJSON);
 const getFantasyName = (race, gender, anthroponymy) => {
   let filteredNames = fantasyNames;
   // filter race
-  if(race !== '') {
-    filteredNames = $.grep(filteredNames, function(obj,i) {
-      return obj.race === race;
-    });
-  }
+  if(race !== '')
+    filteredNames = $.grep(filteredNames, (obj,i) => obj.race === race);
   // filter gender
-  if(gender !== '') {
-    filteredNames = $.grep(filteredNames, function(obj,i) {
-      return obj.gender === gender;
-    });
-  }
+  if(gender !== '')
+    filteredNames = $.grep(filteredNames, (obj,i) => obj.gender === gender);
   // filter anthroponymy
-  if(anthroponymy !== '') {
-    filteredNames = $.grep(filteredNames, function(obj,i) {
-      return obj.anthroponymy === anthroponymy;
-    });
-  }
+  if(anthroponymy !== '')
+    filteredNames = $.grep(filteredNames, (obj,i) => obj.anthroponymy === anthroponymy);
   //re-use roll function from dice.js
   const randomIndex = roll(filteredNames.length) - 1;
   return filteredNames[randomIndex].name;
@@ -277,11 +268,8 @@ const getFullFantasyName = (race, gender) =>
 // Connect functions to button click event
 $('#name-randomizer').on('click', function(e){
   // Get race and gender from radio buttons
-  let race = $('input[name=radio-race]:checked', '#name-race').val();
-  let gender = $('input[name=radio-gender]:checked', '#name-gender').val();
-  // Filter for no selection condition (Which really shouldn't happen anyway)
-  race = (race === undefined) ? '' : race;
-  gender = (gender === undefined) ? '' : gender;
+  const race = $('input[name=radio-race]:checked', '#name-race').val();
+  const gender = $('input[name=radio-gender]:checked', '#name-gender').val();
   // Roll the dice and give the user a name!
-  $('#name-randomizer-result').text(getFullFantasyName(race,gender));
+  $('#name-randomizer-result').text(getFullFantasyName(race || '',gender || ''));
 });

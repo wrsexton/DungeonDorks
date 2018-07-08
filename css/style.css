@@ -92,6 +92,8 @@ header {
   top:0px;
   background-image: url(../img/dice.jpg);
   opacity: 0.25;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .header-title-section {
@@ -237,6 +239,10 @@ footer p {
 *
 ***************************************/
 @media (min-width: 769px) {
+  .hide-md {
+    display:none;
+  }
+
   .main-nav {
     align-items: flex-end;
     justify-content: space-around;

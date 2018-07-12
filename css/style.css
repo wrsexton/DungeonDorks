@@ -238,7 +238,7 @@ footer p {
 *   MEDIA QUERIES
 *
 ***************************************/
-@media (min-width: 769px) {
+@media (min-width: 800) { /*769px) {*/
   .hide-md {
     display:none;
   }

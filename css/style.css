@@ -3,6 +3,9 @@
 ***************************************/
 @import url('https://fonts.googleapis.com/css?family=Great+Vibes');
 
+/**************************************
+*  Root - Global style
+***************************************/
 :root {
   background-color: #333;
 }
@@ -123,7 +126,19 @@ header {
 /**************************************
 * Main nav
 ***************************************/
+#swordburger {
+  height: 4em;
+  background:none;
+  color:#FFF;
+  border:0;
+  font-weight:bold;
+  cursor:pointer;
+  outline:none;
+  z-index:10000000000000;
+}
+
 .main-nav {
+  display: none;
   width: 95%;
   filter: drop-shadow(.08em .08em .08em #333);
 }
@@ -245,6 +260,7 @@ footer p {
   }
 
   .main-nav {
+    display: block;
     align-items: flex-end;
     justify-content: space-around;
     margin-right: 10px;
@@ -291,6 +307,7 @@ footer p {
   }
 
   .main-nav {
+    padding-top: 1em;
     width: 50%;
   }
 }

@@ -134,7 +134,7 @@ header {
   font-weight:bold;
   cursor:pointer;
   outline:none;
-  z-index:10000000000000;
+  z-index:100;
 }
 
 .main-nav {
@@ -207,9 +207,31 @@ header {
   margin-bottom: 10px;
 }
 
-#about p {
-  margin-top: 0;
-  width: 95%;
+#faq {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+}
+
+#faq li {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 10px;
+}
+
+#faq li h6 {
+  text-decoration: underline;
+}
+
+#faq li h6:hover {
+  cursor: pointer;
+  color: #999;
+}
+
+.faq-ans {
+  width: 75%;
 }
 
 #tools div {

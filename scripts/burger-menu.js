@@ -23,12 +23,16 @@ const burgerTransition = () => {
       // Ensure main nav is visible and burger is not
       $mainNav.show();
       $burger.hide();
-    // Otherwise...
     } else {
       // Ensure burger is visible and main nav is not
       $mainNav.hide();
       $burger.show();
     }
+  // Ensure menu button shows and hides appropriately
+  } else if(mql.matches) {
+    $burger.hide();
+  } else {
+    $burger.show();
   }
 }
 

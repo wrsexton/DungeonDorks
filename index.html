@@ -130,7 +130,7 @@
             <h3>About</h3>
             <ul id="faq">
               <li>
-                <h6 class="faq-q">
+                <h6 class="faq-q" tabindex="0">
                   What is this website about?
                 </h6>
                 <p class="faq-ans">
@@ -138,7 +138,7 @@
                 </p>
               </li>
               <li>
-                <h6 class="faq-q">
+                <h6 class="faq-q" tabindex="0">
                   What is Dungeons and Dragons?
                 </h6>
                 <p class="faq-ans">
@@ -146,7 +146,7 @@
                 </p>
               </li>
               <li>
-                <h6 class="faq-q">
+                <h6 class="faq-q" tabindex="0">
                   How do I use this website?
                 </h6>
                 <p class="faq-ans">
@@ -154,7 +154,7 @@
                 </p>
               </li>
               <li>
-                <h6 class="faq-q">
+                <h6 class="faq-q" tabindex="0">
                   Where can I find more information?
                 </h6>
                 <p class="faq-ans">
@@ -260,9 +260,9 @@
               </button>
             </div>
           </div> <!-- End Tools Section -->
+          <!-- Used for looping tab focus -->
+          <div tabindex="0" onFocus="document.querySelector('#autofocus').focus()"></div>
         </div> <!-- End Main Content -->
-        <!-- Used for looping tab focus -->
-        <div tabindex="0" onFocus="document.querySelector('#autofocus').focus()"></div>
       </div> <!-- End Main Window -->
       <!-- Footer -->
       <footer>

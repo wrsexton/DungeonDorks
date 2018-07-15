@@ -221,13 +221,16 @@ header {
   padding-bottom: 10px;
 }
 
-#faq li h6 {
+.faq-q {
+  font-size: 1.1em;
+  color: #fff; /*#ffb366;*/
   text-decoration: underline;
 }
 
-#faq li h6:hover {
+.faq-q:hover,
+.faq-q:focus {
   cursor: pointer;
-  color: #999;
+  color: #666; /*#99ddff;*/
 }
 
 .faq-ans {

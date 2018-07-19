@@ -7,6 +7,8 @@ let blackFlag = false;
 const crossPath = "img/swordcross";
 const burgerPath = "img/swordburger";
 
+// Main section outside of header and footer
+const $mainContent = $('.main-content');
 // Hamburger menu button
 const $burger = $("#swordburger");
 // Main Nav interface
@@ -57,8 +59,8 @@ $( document ).ready(function() {
   burgerTransition();
 
   // Force main content to use the correct padding
-  $('.main-content').css('padding-top',$('header').height());
-  $('.main-content').css('padding-bottom',$('footer').height());
+  $mainContent.css('padding-top',$('header').height());
+  $mainContent.css('padding-bottom',$('footer').height());
 
   $burger.click(function() {
     // Fade out the current burger image
@@ -67,7 +69,6 @@ $( document ).ready(function() {
       $mainNav.slideToggle(toggleSpeed);
       // Toggle state
       burgerExp = !burgerExp;
-      // If the burger is collapsed
       burgerSelect();
       // Fade back in with new image
       $burger.fadeIn(toggleSpeed);
@@ -83,6 +84,13 @@ $( document ).ready(function() {
     // On mouse exit, turn the black flag off (white swords) and select
     blackFlag = false;
     burgerSelect();
+  });
+
+  // Collapse burger menu on main content click
+  $mainContent.click(function() {
+    if(burgerExp) {
+      $burger.trigger('click');
+    }
   });
 
   /* When the window is resized, check the transition

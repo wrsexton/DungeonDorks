@@ -87,7 +87,8 @@ $( document ).ready(function() {
   });
 
   // Collapse burger menu on main content click
-  $mainContent.click(function() {
+  $('.main-content, .main-nav ul li a').click(function() {
+    console.log("bleh");
     if(burgerExp) {
       $burger.trigger('click');
     }

@@ -103,28 +103,37 @@
     <!-- Begin Non-Modal content -->
     <div class="non-modal">
       <header>
-        <!-- Dice header background image -->
-        <div class="dice-img"></div>
-        <div class="header-title-section mt-4">
-          <!-- Page Heading Text -->
-          <span class ="header-title"><img class="header-icon mb-3" src="img/DD_Icon.png">Dungeon Dorks</span>
-        </div>
         <!-- Navigation -->
-        <!-- Swordburger (hamburer) menu dropdown button -->
-        <img id="swordburger" class="mb-4" src="img/swordburger.png" alt="swordburger menu dropdown button">
+        <div class="header-base">
+          <span class ="header-title">
+            <img class="header-icon mb-3" src="img/DD_Icon.png">Dungeon Dorks
+          </span>
+          <!-- Swordburger (hamburer) menu dropdown button -->
+          <img id="swordburger" src="img/swordburger.png" alt="swordburger menu dropdown button">
+        </div>
         <nav class="main-nav">
+          <!-- Page Heading Text -->
           <ul>
             <!-- 'autofocus' class used for looping tab focus from bottom-most element -->
-            <li class="hide-md"><a id="autofocus" class="btn btn-outline-light" href="#about">About</a></li>
-            <li class="hide-md"><a class="btn btn-outline-light" href="#tools">Tools</a></li>
+            <li><a id="autofocus" class="btn btn-outline-light" href="#about">About</a></li>
+            <li><a class="btn btn-outline-light" href="#tools">Tools</a></li>
             <li><a id="modal-contact-launch" class="btn btn-outline-light" tabindex=0 data-toggle="modal" data-target="#modal-contact">Contact</a></li>
           </ul>
         </nav>
       </header>
-      <!-- Main Window -->
-      <div class="main-window">
-        <!-- Main Content -->
-        <div class="main-content">
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Banner -->
+        <div class="banner">
+          <!-- Dice header background image -->
+          <div class="dice-img"></div>
+          <!-- Page Heading Text -->
+          <span class ="banner-title">
+            Some test text that doesn't matter
+          </span>
+        </div> <!-- End Banner -->
+        <!-- main-info -->
+        <div class="divided-content">
           <!-- About Section -->
           <div id="about" class="mb-4">
             <h3>About</h3>
@@ -133,33 +142,41 @@
                 <h6 class="faq-q" tabindex="0">
                   What is this website about?
                 </h6>
-                <p class="faq-ans">
-                  This website is a collection of tools and utilities for assisting players of the popular Dungeons and Dragons tabletop game - owned by <a href="https://company.wizards.com/" target="_blank">wizards of the coast.</a>
-                </p>
+                <div class="faq-ans">
+                  <p>
+                    This website is a collection of tools and utilities for assisting players of the popular Dungeons and Dragons tabletop game - owned by <a href="https://company.wizards.com/" target="_blank">wizards of the coast.</a>
+                  </p>
+                </div>
               </li>
               <li>
                 <h6 class="faq-q" tabindex="0">
                   What is Dungeons and Dragons?
                 </h6>
-                <p class="faq-ans">
-                  Dungeons and Dragons is a tabletop RPG - a type of game played using a set of core rulebooks and the imaginations of a group of friends coming together to have an adventure!
-                </p>
+                <div class="faq-ans">
+                  <p>
+                    Dungeons and Dragons is a tabletop RPG - a type of game played using a set of core rulebooks and the imaginations of a group of friends coming together to have an adventure!
+                  </p>
+                </div>
               </li>
               <li>
                 <h6 class="faq-q" tabindex="0">
                   How do I use this website?
                 </h6>
-                <p class="faq-ans">
-                  Use the navigation buttons at the top of the site to find tools and other content.
-                </p>
+                <div class="faq-ans">
+                  <p>
+                    Use the navigation buttons at the top of the site to find tools and other content.
+                  </p>
+                </div>
               </li>
               <li>
                 <h6 class="faq-q" tabindex="0">
                   Where can I find more information?
                 </h6>
-                <p class="faq-ans">
-                  You can find more information about Wizards of the Coast and their various games at their <a href="http://dnd.wizards.com/" target="_blank">website</a>.
-                </p>
+                <div class="faq-ans">
+                  <p>
+                    You can find more information about Wizards of the Coast and their various games at their <a href="http://dnd.wizards.com/" target="_blank">website</a>.
+                  </p>
+                </div>
               </li>
             </ul>
           </div> <!-- End About Section -->
@@ -260,10 +277,10 @@
               </button>
             </div>
           </div> <!-- End Tools Section -->
-          <!-- Used for looping tab focus -->
-          <div tabindex="0" onFocus="document.querySelector('#autofocus').focus()"></div>
-        </div> <!-- End Main Content -->
-      </div> <!-- End Main Window -->
+        </div>
+        <!-- Used for looping tab focus -->
+        <div tabindex="0" onFocus="document.querySelector('#autofocus').focus()"></div>
+      </div> <!-- End Main Content -->
       <!-- Footer -->
       <footer>
         <p>

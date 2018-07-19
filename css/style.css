@@ -81,8 +81,103 @@ body {
 header {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  min-height: 3.25em;
+  background-color: #841a35;
+  border-bottom: solid black 0.2em;
+  /* Sticky */
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  z-index:100;
+}
+
+/**************************************
+* Main nav
+***************************************/
+.header-base {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  align-self: flex-start;
+  text-align: left;
+  color: #ccc6c3;
+  font-size: 2em;
+  font-family: 'Great Vibes', cursive;
+  /*
+  filter: drop-shadow(.03em .03em .03em #333);
+  */
+  -webkit-text-stroke: 0.01em black;
+}
+
+.header-icon {
+  bottom: 0;
+  height: 1em;
+  filter: drop-shadow(.03em .03em .03em #333);
+}
+
+#swordburger {
+  align-self: flex-end;
+  margin: 0.5em 0.5em;
+  height: 2em;
+  cursor:pointer;
+  z-index:100;
+}
+
+#swordburger:hover {
+  background-color: white;
+  border-radius: 10%;
+}
+
+.main-nav {
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  display: none;
+}
+
+.main-nav ul {
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.main-nav ul li {
+  text-decoration: none;
+  list-style-type: none;
+  text-align: center;
+  padding: 10px 0;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
+}
+
+.main-nav ul li a {
+  font-size: 1.5em;
+}
+
+.main-nav ul li:first-child {
+  padding-top: 0;
+}
+
+.main-nav ul li:last-child {
+  border-bottom: none;
+}
+
+/**************************************
+* Banner
+***************************************/
+.banner {
+  display: flex;
+  justify-content: center;
   align-items: center;
   background-color: #841a35;
+  height: 8em;
   width: 100%;
   border-bottom: 0.2em solid black;
   position: relative;
@@ -99,94 +194,23 @@ header {
   background-size: cover;
 }
 
-.header-title-section {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  margin: 0;
-  padding-left: 0.2em;
-  justify-content: center;
-}
-
-.header-icon {
-  bottom: 0;
-  height: 1em;
-  filter: drop-shadow(.03em .03em .03em #333);
-}
-
-.header-title {
+.banner-title {
   text-align: center;
   color: #ccc6c3;
-  font-size: 4em;
+  font-size: 2.5em;
   font-family: 'Great Vibes', cursive;
   filter: drop-shadow(.03em .03em .03em #333);
   -webkit-text-stroke: 0.01em black;
 }
 
 /**************************************
-* Main nav
-***************************************/
-#swordburger {
-  height: 4em;
-  background:none;
-  color:#FFF;
-  border:0;
-  font-weight:bold;
-  cursor:pointer;
-  outline:none;
-  z-index:100;
-}
-
-.main-nav {
-  display: none;
-  width: 95%;
-  filter: drop-shadow(.08em .08em .08em #333);
-}
-
-.main-nav ul {
-  justify-content: center;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-}
-
-.main-nav ul li {
-  text-decoration: none;
-  list-style-type: none;
-  text-align: center;
-  padding: 10px 0;
-  justify-content: space-between;
-  border-bottom: 2px solid black;
-}
-
-.main-nav ul li a {
-  font-size: 2rem;
-}
-
-.main-nav ul li:first-child {
-  padding-top: 0;
-}
-
-.main-nav ul li:last-child {
-  padding-bottom: 0;
-  border-bottom: none;
-}
-
-/**************************************
 * Main content section
 ***************************************/
-.main-window {
-  display: flex;
-  justify-content: center;
-  bottom: 1.5em;
-  padding: 1em;
-}
-
 .main-content {
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  width: 90%;
-  padding-bottom: 1.5em;
+  width: 100%;
 }
 
 #about,
@@ -194,9 +218,12 @@ header {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
+  align-self: center;
   align-items: center;
   color: #ddd;
   width: 95%;
+  padding-top: 3.25em;
+  margin-top: -3.25em;
 }
 
 #about h3,
@@ -234,7 +261,14 @@ header {
 }
 
 .faq-ans {
+  text-align: left;
   width: 75%;
+  border: solid white 1px;
+}
+
+.faq-ans p {
+  padding: 0.5em;
+  margin: 0;
 }
 
 #tools div {
@@ -279,60 +313,81 @@ footer p {
 *   MEDIA QUERIES
 *
 ***************************************/
+@media (max-width: 400px) {
+  .header-title {
+    font-size: 1.5em;
+    padding-top: 0.4em;
+  }
+}
+
 @media (min-width: 769px) {
-  .hide-md {
-    display:none;
+  header {
+    flex-direction: row;
+  }
+
+  .header-base {
+    width: 40%;
   }
 
   .main-nav {
-    display: block;
-    align-items: flex-end;
-    justify-content: space-around;
-    margin-right: 10px;
+    width: 60%
   }
 
   .main-nav ul {
     display: flex;
     flex-direction: row;
+    justify-content: center;
   }
 
   .main-nav ul li {
     flex-grow: 1;
-    padding: 0;
+    padding: 0.2em;
     border-bottom: none;
   }
 
-  .main-content {
+  .main-nav ul li:first-child {
+    padding: 0.2em;
+  }
+
+  .main-nav ul li a {
+    font-size: 1em;
+  }
+
+  .banner-title {
+    font-size: 4em;
+  }
+
+  .divided-content {
+    display: flex;
     flex-direction: row;
   }
 
-  #tools {
-    margin-right: 15px;
-    margin-left: 15px;
+  #tools,
+  #about {
+    align-self: flex-start;
   }
 }
 
 @media (min-width: 1025px) {
-  header {
-    flex-direction: row;
+  .header-base {
+    width: 70%;
   }
 
-  .header-title-section {
-    justify-content: flex-start;
-    width: 50%;
+  .main-nav {
+    width: 30%
   }
 
-  .header-title {
-    text-align: left;
+  .main-nav ul {
+    flex-grow: 0;
+    justify-content: flex-end;
   }
 
-  .main-window {
+  .main-content {
     max-width:1256px;
     margin: auto;
   }
 
-  .main-nav {
-    padding-top: 1em;
+  .faq-ans {
     width: 50%;
   }
 }

@@ -213,6 +213,12 @@ header {
   width: 100%;
 }
 
+.divided-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 #about,
 #tools {
   display: flex;
@@ -239,6 +245,7 @@ header {
   padding: 0;
   list-style-type: none;
   text-align: center;
+  width: 90%;
 }
 
 #faq li {
@@ -358,8 +365,11 @@ footer p {
   }
 
   .divided-content {
-    display: flex;
     flex-direction: row;
+  }
+
+  #faq {
+    width: 70%;
   }
 
   #tools,
@@ -385,6 +395,10 @@ footer p {
   .main-content {
     max-width:1256px;
     margin: auto;
+  }
+
+  #faq {
+    width: 60%;
   }
 
   .faq-ans {

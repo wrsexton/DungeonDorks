@@ -2,6 +2,7 @@
 *  Web Fonts
 ***************************************/
 @import url('https://fonts.googleapis.com/css?family=Great+Vibes');
+@import url('https://fonts.googleapis.com/css?family=Della+Respira');
 
 /**************************************
 *  Root - Global style
@@ -208,6 +209,7 @@ header {
 * Main content section
 ***************************************/
 .main-content {
+  font-family: 'Della Respira', serif;
   display: flex;
   justify-content: center;
   flex-direction: column;

@@ -103,6 +103,7 @@ header {
 }
 
 .header-title {
+  padding-top: 0.2em;
   align-self: flex-start;
   text-align: left;
   color: #ccc6c3;

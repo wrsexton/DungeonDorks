@@ -84,7 +84,7 @@ header {
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 3.25em;
+  min-height: 3.6em;
   background-color: #841a35;
   border-bottom: solid black 0.2em;
   /* Sticky */
@@ -111,9 +111,6 @@ header {
   color: #ccc6c3;
   font-size: 2em;
   font-family: 'Great Vibes', cursive;
-  /*
-  filter: drop-shadow(.03em .03em .03em #333);
-  */
   -webkit-text-stroke: 0.01em black;
 }
 
@@ -141,6 +138,7 @@ header {
   align-items: center;
   width: 100%;
   display: none;
+  margin-top: 2em;
 }
 
 .main-nav ul {
@@ -231,8 +229,8 @@ header {
   align-items: center;
   color: #ddd;
   width: 95%;
-  padding-top: 3.25em;
-  margin-top: -3.25em;
+  padding-top: 3.5em;
+  margin-top: -3.5em;
 }
 
 #about h3,
@@ -272,7 +270,7 @@ header {
 
 .faq-ans {
   text-align: left;
-  width: 75%;
+  width: 95%;
   border: solid white 1px;
 }
 
@@ -340,7 +338,8 @@ footer p {
   }
 
   .main-nav {
-    width: 60%
+    margin-top: 0.5em;
+    width: 60%;
   }
 
   .main-nav ul {
@@ -371,10 +370,6 @@ footer p {
     flex-direction: row;
   }
 
-  #faq {
-    width: 70%;
-  }
-
   #tools,
   #about {
     align-self: flex-start;
@@ -398,13 +393,5 @@ footer p {
   .main-content {
     max-width:1256px;
     margin: auto;
-  }
-
-  #faq {
-    width: 60%;
-  }
-
-  .faq-ans {
-    width: 50%;
   }
 }

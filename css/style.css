@@ -15,6 +15,7 @@
 *  Body
 ***************************************/
 body {
+  font-family: 'Della Respira', serif;
   background-color: #333;
 }
 
@@ -209,7 +210,6 @@ header {
 * Main content section
 ***************************************/
 .main-content {
-  font-family: 'Della Respira', serif;
   display: flex;
   justify-content: center;
   flex-direction: column;

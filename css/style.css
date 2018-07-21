@@ -247,6 +247,7 @@ header {
   list-style-type: none;
   text-align: center;
   width: 90%;
+  margin-bottom: 1em;
 }
 
 #faq li {

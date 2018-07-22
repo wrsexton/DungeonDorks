@@ -390,9 +390,4 @@ footer p {
     flex-grow: 0;
     justify-content: flex-end;
   }
-
-  .main-content {
-    max-width:1256px;
-    margin: auto;
-  }
 }

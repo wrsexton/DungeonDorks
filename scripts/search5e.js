@@ -1,14 +1,15 @@
+// API strings
 const $dndAPI = 'http://www.dnd5eapi.co/api/';
 const $spells = 'spells/';
 
+// Spellbook elements
 const $spellBookButton = $('#spell-book-dropdown');
 const $spellSearchButton = $('#spell-search-btn')
 const $spellDisplay = $('#spell-display');
 const $spellBookContent = $('#spell-book-content');
 const $spellSearchInput = $('#spell-search')
 
-console.log('reloaded');
-
+// Code for formatting and printing spell data
 const printSpell = (spell) => {
   const name = spell.name;
   const desc = spell.desc[0];
@@ -34,6 +35,9 @@ const strContains = (str, contains) => {
   return (str.toLowerCase().indexOf(contains.toLowerCase()) >= 0);
 }
 
+// Gets the indexes of the spells found and stores them in an array
+// so that they can be looked up in the spells section of the API as
+// full JSON objects
 const getSearchIndexes = (searchContainer,searchTerm) => {
   let indexes = [];
   $(searchContainer).each(function(i) {
@@ -45,39 +49,33 @@ const getSearchIndexes = (searchContainer,searchTerm) => {
   return indexes;
 }
 
+// Uses the indexes of spells returned by getSearchIndexes to
+// build HTML content using the responseJSONs
 const getSearchResults = (searchContainer,searchTerm,func) => {
   const indexes = getSearchIndexes(searchContainer,searchTerm)
   if(indexes.length == 0) {
-    $spellDisplay.html("Nothing Found")
+    $spellDisplay.html("No results Found");
   } else {
-    $spellDisplay.html("")
+    $spellDisplay.html("");
   }
   $(indexes).each(function(i) {
-    console.log(3);
     const $spell = $.get($dndAPI + $spells + indexes[i], function() {
-      console.log(4);
       func($spell.responseJSON);
     });
   });
 }
 
-$spellBookButton.click(function() {
-  console.log(0);
-  $spellBookContent.slideToggle(400);
-});
-
-$spellSearchButton.click(function() {
-  console.log(1);
-  const $spellRequest = $.get($dndAPI + $spells, function() {
-    console.log(2);
-    getSearchResults($spellRequest.responseJSON.results,$spellSearchInput.val(), printSpell);
-  }).fail(function() {
-    console.log(10);
-  }).always(function() {
-    console.log(20);
-  });
-});
-
 $(document).ready(function() {
+  $spellBookButton.click(function() {
+    $spellBookContent.slideToggle(400);
+  });
 
+  $spellSearchButton.click(function(e) {
+    e.preventDefault();
+    const $spellRequest = $.get($dndAPI + $spells, function() {
+      getSearchResults($spellRequest.responseJSON.results,$spellSearchInput.val(), printSpell);
+    }).fail(function() {
+      $spellDisplay.html("ERROR");
+    });
+  });
 });

@@ -270,11 +270,27 @@
                   </div>
                 </div> <!-- End Dice Roller Table -->
             </div> <!-- End Dice Roller -->
+            <!-- Fantasy Name Randomizer -->
             <div class="fantasy-name-randomizer">
               <!-- Button trigger modal -->
               <button id=name-randomizer-launch type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#modal-name">
                 Fantasy Name Randomizer
               </button>
+            </div>
+            <div class="spell-book">
+              <!-- Button to reveal spellbook -->
+              <button id="spell-book-dropdown" type="button" class="btn btn-outline-light">
+                Spellbook
+              </button>
+              <div id="spell-book-content">
+                <form id="spell-book-form">
+                  <label for="spell-search">Spell:</label>
+                  <input type="text" id="spell-search" name="spell-search" placeholder="spell" />
+                  <button id="spell-search-btn">Search</button>
+                </form>
+                <div id="spell-display">
+                </div>
+              </div>
             </div>
           </div> <!-- End Tools Section -->
         </div>
@@ -308,5 +324,7 @@
     <script src="scripts/fantasy-names.js"></script>
     <!-- FAQ Javascript -->
     <script src="scripts/faq.js"></script>
+    <!-- 5e API Search Javascript -->
+    <script src="scripts/search5e.js"></script>
   </body>
 </html>

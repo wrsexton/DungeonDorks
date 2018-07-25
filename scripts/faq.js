@@ -1,4 +1,3 @@
-//
 const showAns = ans => ans.slideToggle(400);
 
 // Hide all faq answers by default

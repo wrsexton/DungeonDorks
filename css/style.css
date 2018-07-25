@@ -292,8 +292,40 @@ header {
 .dice-table .row button .result {
   width: 3rem;
 }
-.fantasy-name-randomizer button {
+.fantasy-name-randomizer button,
+.spell-book button {
   width: 100%;
+}
+
+/**************************************
+*  Spells
+***************************************/
+#spell-book-content {
+  display: none;
+  padding-top: 0.5em;
+}
+
+#spell-book-content {
+
+}
+
+.spell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.5em;
+  border: 0.2em solid white;
+}
+
+.spell-name {
+  width: 100%;
+  border-bottom: 0.2em solid white;
+  text-align: center;
+  background-color: #841a35;
+}
+
+.spell-desc {
+  width: 90%;
 }
 
 /**************************************

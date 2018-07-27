@@ -7,12 +7,31 @@ const $spellBookButton = $('#spell-book-dropdown');
 const $spellSearchButton = $('#spell-search-btn')
 const $spellDisplay = $('#spell-display');
 const $spellBookContent = $('#spell-book-content');
-const $spellSearchInput = $('#spell-search')
+const $spellSearchInput = $('#spell-search');
+
+// Turns 1 into 1st, 2 into 2nd, etc.
+// Only works on numbers 0-99
+const ordinal_suffix_of = (i) => {
+  var j = i % 10;
+  if (j == 1 && i != 11) {
+      return i + "st";
+  }
+  if (j == 2 && i != 12) {
+      return i + "nd";
+  }
+  if (j == 3 && i != 13) {
+      return i + "rd";
+  }
+  return i + "th";
+}
 
 // Code for formatting and printing spell data
 const printSpell = (spell) => {
+  console.log(spell);
   // Spell name
   const name = spell.name;
+  // Spell level
+  const lvl = ordinal_suffix_of(spell.level) + "-level ";
   // Spell description
   const desc = spell.desc[0];
   // Casting Time
@@ -30,6 +49,9 @@ const printSpell = (spell) => {
   spellHTML += `<p class="spell-name">`;
   spellHTML += name;
   spellHTML += `</p>`;
+  spellHTML += `<p class="level-school">`;
+  spellHTML += lvl + school;
+  spellHTML += `</p>`
   spellHTML += `<p class="spell-desc">`;
   spellHTML += desc;
   spellHTML += `</p>`;

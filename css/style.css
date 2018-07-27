@@ -280,8 +280,15 @@ header {
   margin: 0;
 }
 
-#tools div {
-  width: 16rem;
+#tools {
+  width: 80%;
+}
+
+/**************************************
+*  Dice
+***************************************/
+.dice-collapse {
+  width: 100%;
 }
 
 .dice-table {
@@ -289,9 +296,25 @@ header {
   padding : 5px;
 }
 
-.dice-table .row button .result {
-  width: 3rem;
+.dice-column {
+  display: flex;
+  flex-direction: column;
 }
+
+.dice-roller {
+  width: 100%;
+}
+
+.dice-roll-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.fantasy-name-randomizer {
+  width: 100%;
+}
+
 .fantasy-name-randomizer button,
 .spell-book button {
   width: 100%;
@@ -300,13 +323,33 @@ header {
 /**************************************
 *  Spells
 ***************************************/
+.spell-book {
+  width: 100%;
+}
 #spell-book-content {
   display: none;
   padding-top: 0.5em;
 }
 
-#spell-book-content {
+#spell-book-form {
+  display: flex;
+  flex-direction: column;
+}
 
+.spell-search-label {
+  margin: 0;
+  margin-left: 10%;
+}
+
+.spell-search-controls {
+  display: flex;
+  align-self: center;
+  width: 80%;
+}
+
+#spell-search-btn {
+  width: 50%;
+  align-self: center;
 }
 
 .spell {
@@ -400,12 +443,15 @@ footer p {
   }
 
   .divided-content {
+    align-self: center;
     flex-direction: row;
+    width: 95%;
   }
 
   #tools,
   #about {
     align-self: flex-start;
+    width: 100%;
   }
 }
 

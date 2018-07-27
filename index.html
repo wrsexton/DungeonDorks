@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- bootstrap CSS CDN -->
     <link
@@ -185,90 +185,64 @@
             <h3>Tools</h3>
             <!-- Dice Roller -->
             <div class="dice-roller">
-                <!-- Dice Roller Collapse Button -->
-                <div class="dice-collapse btn btn-outline-light mx-auto" tabindex="0">
-                  <span>Dice Roller</span>
-                </div>
-                <!-- Dice Roller Table -->
-                <div class="container dice-table">
+              <!-- Dice Roller Collapse Button -->
+              <button class="dice-collapse btn btn-outline-light" tabindex="0">
+                <span>Dice Roller</span>
+              </button>
+              <!-- Dice Roller Table -->
+              <div class="dice-table">
+                <div class="dice-column">
                   <!-- d4 -->
-                  <div class="row">
-                    <button id="d4" class="btn btn-outline-light mx-auto">
-                      <div class="d-flex justify-content-between">
-                        Roll a d4
-                        <span id="d4-result" class="result badge badge-light text-center">
-                          ?
-                        </span>
-                      </div>
-                    </button>
-                  </div>
+                  <button id="d4" class="btn btn-outline-light dice-roll-btn">
+                    Roll a d4
+                    <span id="d4-result" class="result badge badge-light text-center">
+                      ?
+                    </span>
+                  </button>
                   <!-- d6 -->
-                  <div class="row">
-                    <button id="d6" class="btn btn-outline-light mx-auto">
-                      <div class="d-flex justify-content-between">
-                        Roll a d6
-                        <span id="d6-result" class="result badge badge-light text-center">
-                          ?
-                        </span>
-                      </div>
-                    </button>
-                  </div>
+                  <button id="d6" class="btn btn-outline-light dice-roll-btn">
+                    Roll a d6
+                    <span id="d6-result" class="result badge badge-light text-center">
+                      ?
+                    </span>
+                  </button>
                   <!-- d8 -->
-                  <div class="row">
-                    <button id="d8" class="btn btn-outline-light mx-auto">
-                      <div class="d-flex justify-content-between">
-                        Roll a d8
-                        <span id="d8-result" class="result badge badge-light text-center">
-                          ?
-                        </span>
-                      </div>
-                    </button>
-                  </div>
+                  <button id="d8" class="btn btn-outline-light dice-roll-btn">
+                    Roll a d8
+                    <span id="d8-result" class="result badge badge-light text-center">
+                      ?
+                    </span>
+                  </button>
                   <!-- d10 -->
-                  <div class="row">
-                    <button id="d10" class="btn btn-outline-light mx-auto">
-                      <div class="d-flex justify-content-between">
-                        Roll a d10
-                        <span id="d10-result" class="result badge badge-light text-center">
-                          ?
-                        </span>
-                      </div>
-                    </button>
-                  </div>
+                  <button id="d10" class="btn btn-outline-light dice-roll-btn">
+                    Roll a d10
+                    <span id="d10-result" class="result badge badge-light text-center">
+                      ?
+                    </span>
+                  </button>
                   <!-- d12 -->
-                  <div class="row">
-                    <button id="d12" class="btn btn-outline-light mx-auto">
-                      <div class="d-flex justify-content-between">
-                        Roll a d12
-                        <span id="d12-result" class="result badge badge-light text-center">
-                          ?
-                        </span>
-                      </div>
-                    </button>
-                  </div>
+                  <button id="d12" class="btn btn-outline-light dice-roll-btn">
+                    Roll a d12
+                    <span id="d12-result" class="result badge badge-light text-center">
+                      ?
+                    </span>
+                  </button>
                   <!-- d20 -->
-                  <div class="row">
-                    <button id="d20" class="btn btn-outline-light mx-auto">
-                      <div class="d-flex justify-content-between">
-                        Roll a d20
-                        <span id="d20-result" class="result badge badge-light text-center">
-                          ?
-                        </span>
-                      </div>
-                    </button>
-                  </div>
+                  <button id="d20" class="btn btn-outline-light dice-roll-btn">
+                    Roll a d20
+                    <span id="d20-result" class="result badge badge-light text-center">
+                      ?
+                    </span>
+                  </button>
                   <!-- d100 -->
-                  <div class="row">
-                    <button id="d100" class="btn btn-outline-light mx-auto">
-                      <div class="d-flex justify-content-between">
-                        Roll a d100
-                        <span id="d100-result" class="result badge badge-light text-center">
-                          ?
-                        </span>
-                      </div>
-                    </button>
+                  <button id="d100" class="btn btn-outline-light dice-roll-btn">
+                    Roll a d100
+                    <span id="d100-result" class="result badge badge-light text-center">
+                      ?
+                    </span>
                   </div>
-                </div> <!-- End Dice Roller Table -->
+                </button> <!-- End Dice Roller Table -->
+              </div> <!-- End Dice Roller Table -->
             </div> <!-- End Dice Roller -->
             <!-- Fantasy Name Randomizer -->
             <div class="fantasy-name-randomizer">
@@ -284,9 +258,11 @@
               </button>
               <div id="spell-book-content">
                 <form id="spell-book-form">
-                  <label for="spell-search">Spell:</label>
-                  <input type="text" id="spell-search" name="spell-search" placeholder="spell" />
-                  <button id="spell-search-btn">Search</button>
+                  <label class="spell-search-label" for="spell-search">Spell:</label>
+                  <div class="spell-search-controls">
+                    <input type="text" id="spell-search" name="spell-search" placeholder="spell" />
+                    <button id="spell-search-btn" class="btn btn-outline-light">Search</button>
+                  </div>
                 </form>
                 <div id="spell-display">
                 </div>

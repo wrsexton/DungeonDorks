@@ -121,7 +121,7 @@ const printSpell = (spell) => {
                     `</p>
                     <div class="spell-desc">` +
                       desc +
-                    `</p>
+                    `</div>
                   </div>
                 </div>`;
   // Set HTML to constructed HTML

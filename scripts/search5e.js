@@ -25,15 +25,25 @@ const ordinal_suffix_of = (i) => {
   return i + "th";
 }
 
+// Removes characters incompatible with UTF-8
+const stringFix = (str) => {
+  var output = "";
+  for (var i=0; i<str.length; i++) {
+      if (str.charCodeAt(i) <= 127) {
+          output += str.charAt(i);
+      }
+  }
+   return output
+}
+
 // Code for formatting and printing spell data
 const printSpell = (spell) => {
-  console.log(spell);
   // Spell name
   const name = spell.name;
   // Spell level
   const lvl = ordinal_suffix_of(spell.level) + "-level ";
   // Spell description
-  const desc = spell.desc[0];
+  const desc = stringFix(spell.desc[0]);
   // Casting Time
   const cTime = spell.casting_time;
   // Spell School
@@ -102,16 +112,22 @@ const getSearchResults = (searchContainer,searchTerm,func) => {
     let htmlData = "";
     // For each relevant index
     $(indexes).each(function(i) {
-      // Get the spell's detailed JSON
-      const $spell = $.get($dndAPI + $spells + indexes[i], function() {
-        // Add formatted spell data to the running html string
-        htmlData += func($spell.responseJSON);
-      // On failure, add an error message to the html string
-      }).fail(function() {
-        htmlData += "<br>ERROR<br>";
-      // When each result returns, set the HTML and text alignment
-      }).always(function() {
-        $spellDisplay.html(htmlData).css("text-align", "left");
+      $.ajax({
+          // Specific spell url
+          url: $dndAPI + $spells+ indexes[i],
+          mimeType: "text/html; charset=UTF-8",
+          success: function(result) {
+            // Add formatted spell data to the running html string
+            htmlData += func($.parseJSON(result));
+          },
+          fail: function() {
+            // On failure, add an error message to the html string
+            htmlData += "<br>ERROR<br>";
+          },
+          complete: function() {
+            // When each result returns, set the HTML and text alignment
+            $spellDisplay.html(htmlData).css("text-align", "left");
+          }
       });
     });
   }
@@ -131,17 +147,22 @@ $(document).ready(function() {
     // Put up some temporary text while the routine searches.
     // Also change text alignment to center
     $spellDisplay.html("Searching...").css("text-align", "center");
-    // Create the main spell request - this grabs all the spells
-    // from the API
-    const $spellRequest = $.get($dndAPI + $spells, function() {
-      // On success, pass the spells to the search results function
-      // along with the search input text and the function that will
-      // ultimately format the data and add it to the page.
-      getSearchResults($spellRequest.responseJSON.results,$spellSearchInput.val(), printSpell);
-    // If the request to the API fails, print this detailed error message
-    }).fail(function() {
-      $spellDisplay.html("ERROR");
-    // When everything is done, return the text alignment to left
+    // Grab all the spells from the API as a list
+    $.ajax({
+        url: $dndAPI + $spells,
+        mimeType: "text/html; charset=UTF-8",
+        success: function(result) {
+          // On success, pass the spells to the search results function
+          // along with the search input text and the function that will
+          // ultimately format the data and add it to the page.
+          getSearchResults($.parseJSON(result).results,
+                          $spellSearchInput.val(),
+                          printSpell);
+        },
+        fail: function() {
+          // If the request to the API fails, print this detailed error message
+          $spellDisplay.html("ERROR");
+        }
     });
   });
 });

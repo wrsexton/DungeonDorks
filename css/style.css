@@ -347,8 +347,13 @@ header {
   width: 80%;
 }
 
+#spell-search {
+  width: 70%;
+}
+
 #spell-search-btn {
-  width: 50%;
+  width: 30%;
+  font-size: 0.75em;
   align-self: center;
 }
 

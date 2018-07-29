@@ -25,8 +25,14 @@ const ordinal_suffix_of = (i) => {
   return i + "th";
 }
 
+// Checks to see if 'str' contains 'contains'
+// (returns true if it does)
+const strContains = (str, contains) => {
+  return (str.toLowerCase().indexOf(contains.toLowerCase()) >= 0);
+}
+
 // Removes characters incompatible with UTF-8
-const stringFix = (str) => {
+const strFix = (str) => {
   var output = "";
   for (var i=0; i<str.length; i++) {
       if (str.charCodeAt(i) <= 127) {
@@ -36,44 +42,90 @@ const stringFix = (str) => {
    return output
 }
 
+// Helper function for printing spell descriptors
+const printSpellDescriptor = (descriptor) => {
+  return `<span class="spell-label">` + descriptor + `: </span>`;
+}
+
+// Print components of spell, including materials if needed
+const printSpellComponents = (spell) => {
+  let components = spell.components.toString();
+  if(strContains(components, "M")) {
+    components += ` (` + spell.material + `)`;
+  }
+  return components;
+}
+
+// Print spell description
+const printSpellDescription = (d) => {
+  let dStr = "<p>";
+  if(d.length > 0) {
+    dStr += d[0].toString() + `</p><div class="spell-sub-desc">`;
+    for(i=1;i<d.length;i++) {
+      dStr+= `<p>` + d[i].toString() + `</p>`;
+    }
+    dStr += `</div>`;
+  } else {
+    dStr += d.toString() + `</p>`;
+  }
+  return strFix(dStr);
+}
+
 // Code for formatting and printing spell data
 const printSpell = (spell) => {
+  console.log(spell);
   // Spell name
   const name = spell.name;
   // Spell level
-  const lvl = ordinal_suffix_of(spell.level) + "-level ";
-  // Spell description
-  const desc = stringFix(spell.desc[0]);
-  // Casting Time
-  const cTime = spell.casting_time;
+  const lvl = spell.level > 0 ?
+              ordinal_suffix_of(spell.level) + "-level " :
+              "Cantrip ";
   // Spell School
   const school = spell.school.name;
+  // Spell description
+  const desc = printSpellDescription(spell.desc);
+  // Casting Time
+  const cTime = spell.casting_time;
   // Spell Range
   const range = spell.range;
   // Spell Components
-  const components = spell.components;
+  const components = printSpellComponents(spell);
+  // Spell Duration
+  const duration = spell.duration;
 
   let spellHTML = "";
   // Apply formatting HTML and add data
-  spellHTML += `<div class="spell">`;
-  spellHTML += `<p class="spell-name">`;
-  spellHTML += name;
-  spellHTML += `</p>`;
-  spellHTML += `<p class="level-school">`;
-  spellHTML += lvl + school;
-  spellHTML += `</p>`
-  spellHTML += `<p class="spell-desc">`;
-  spellHTML += desc;
-  spellHTML += `</p>`;
-  spellHTML += `</div>`;
+  spellHTML += `<div class="spell">
+                  <p class="spell-name">` +
+                    name +
+                  `</p>
+                  <div class="spell-data">
+                    <p class="level-school">` +
+                      lvl + school +
+                    `</p>
+                    <p class="casting-time">` +
+                      printSpellDescriptor('Casting Time') +
+                      cTime +
+                    `</p>
+                    <p class="spell-range">` +
+                      printSpellDescriptor('Range') +
+                      range +
+                    `</p>
+                    <p class="spell-components">` +
+                      printSpellDescriptor('Components') +
+                      components +
+                    `</p>
+                    <p class="spell-duration">` +
+                      printSpellDescriptor('Duration') +
+                      duration +
+                    `</p>
+                    <div class="spell-desc">` +
+                      desc +
+                    `</p>
+                  </div>
+                </div>`;
   // Set HTML to constructed HTML
   return spellHTML;
-}
-
-// Checks to see if 'str' contains 'contains'
-// (returns true if it does)
-const strContains = (str, contains) => {
-  return (str.toLowerCase().indexOf(contains.toLowerCase()) >= 0);
 }
 
 // Accepts a JSON full of data representing a collection of

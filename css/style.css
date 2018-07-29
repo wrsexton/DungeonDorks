@@ -372,8 +372,32 @@ header {
   background-color: #841a35;
 }
 
-.spell-desc {
+.spell-data {
   width: 90%;
+  font-size: 0.8em;
+}
+
+.level-school {
+  font-style: italic;
+}
+
+.spell-label {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.casting-time,
+.spell-range,
+.spell-components {
+  margin: 0;
+}
+
+.spell-desc {
+  font-size: 1.2em;
+}
+
+.spell-sub-desc p {
+  font-size: 0.8em;
 }
 
 /**************************************

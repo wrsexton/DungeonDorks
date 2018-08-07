@@ -1,4 +1,4 @@
-// API strings
+// API url
 const $dndAPI = 'http://www.dnd5eapi.co/api/';
 const $spells = 'spells/';
 
@@ -39,12 +39,7 @@ const strFix = (str) => {
           output += str.charAt(i);
       }
   }
-   return output
-}
-
-// Helper function for printing spell descriptors
-const printSpellDescriptor = (descriptor) => {
-  return `<span class="spell-label">` + descriptor + `: </span>`;
+   return output;
 }
 
 // Print components of spell, including materials if needed
@@ -96,32 +91,32 @@ const printSpell = (spell) => {
   let spellHTML = "";
   // Apply formatting HTML and add data
   spellHTML += `<div class="spell">
-                  <p class="spell-name">` +
-                    name +
-                  `</p>
+                  <p class="spell-name">
+                    ${name}
+                  </p>
                   <div class="spell-data">
-                    <p class="level-school">` +
-                      lvl + school +
-                    `</p>
-                    <p class="casting-time">` +
-                      printSpellDescriptor('Casting Time') +
-                      cTime +
-                    `</p>
-                    <p class="spell-range">` +
-                      printSpellDescriptor('Range') +
-                      range +
-                    `</p>
-                    <p class="spell-components">` +
-                      printSpellDescriptor('Components') +
-                      components +
-                    `</p>
-                    <p class="spell-duration">` +
-                      printSpellDescriptor('Duration') +
-                      duration +
-                    `</p>
-                    <div class="spell-desc">` +
-                      desc +
-                    `</div>
+                    <p class="level-school">
+                      ${lvl + school}
+                    </p>
+                    <p class="casting-time">
+                      <span class="spell-label">Casting Time: </span>
+                      ${cTime}
+                    </p>
+                    <p class="spell-range">
+                      <span class="spell-label">Range: </span>
+                      ${range}
+                    </p>
+                    <p class="spell-components">
+                      <span class="spell-label">Components: </span>
+                      ${components}
+                    </p>
+                    <p class="spell-duration">
+                      <span class="spell-label">Duration: </span>
+                      ${duration}
+                    </p>
+                    <div class="spell-desc">
+                      ${desc}
+                    </div>
                   </div>
                 </div>`;
   // Set HTML to constructed HTML

@@ -1,6 +1,11 @@
 // API url
 const $dndAPI = 'http://www.dnd5eapi.co/api/';
-const $spells = 'spells/';
+
+// Get full spell list from API
+const spells = [];
+fetch($dndAPI + 'spells/')
+  .then(blob => blob.json())
+  .then(data => spells.push(...data.results));
 
 // Spellbook elements
 const $spellBookButton = $('#spell-book-dropdown');
@@ -55,20 +60,20 @@ const printSpellComponents = (spell) => {
 const printSpellDescription = (d) => {
   let dStr = "<p>";
   if(d.length > 0) {
-    dStr += d[0].toString() + `</p><div class="spell-sub-desc">`;
+    dStr += `${d[0].toString()}</p><div class="spell-sub-desc">`;
     for(i=1;i<d.length;i++) {
-      dStr+= `<p>` + d[i].toString() + `</p>`;
+      dStr+= `<p>${d[i].toString()}</p>`;
     }
     dStr += `</div>`;
   } else {
-    dStr += d.toString() + `</p>`;
+    dStr += `${d.toString()}</p>`;
   }
   return strFix(dStr);
 }
 
 // Code for formatting and printing spell data
 const printSpell = (spell) => {
-  console.log(spell);
+  //console.log(spell);
   // Spell name
   const name = spell.name;
   // Spell level
@@ -87,97 +92,63 @@ const printSpell = (spell) => {
   const components = printSpellComponents(spell);
   // Spell Duration
   const duration = spell.duration;
-
-  let spellHTML = "";
   // Apply formatting HTML and add data
-  spellHTML += `<div class="spell">
-                  <p class="spell-name">
-                    ${name}
-                  </p>
-                  <div class="spell-data">
-                    <p class="level-school">
-                      ${lvl + school}
-                    </p>
-                    <p class="casting-time">
-                      <span class="spell-label">Casting Time: </span>
-                      ${cTime}
-                    </p>
-                    <p class="spell-range">
-                      <span class="spell-label">Range: </span>
-                      ${range}
-                    </p>
-                    <p class="spell-components">
-                      <span class="spell-label">Components: </span>
-                      ${components}
-                    </p>
-                    <p class="spell-duration">
-                      <span class="spell-label">Duration: </span>
-                      ${duration}
-                    </p>
-                    <div class="spell-desc">
-                      ${desc}
-                    </div>
-                  </div>
-                </div>`;
+  let spellHTML = `
+  <div class="spell">
+    <p class="spell-name">
+      ${name}
+    </p>
+    <div class="spell-data">
+      <p class="level-school">
+        ${lvl + school}
+      </p>
+      <p class="casting-time">
+        <span class="spell-label">Casting Time: </span>
+        ${cTime}
+      </p>
+      <p class="spell-range">
+        <span class="spell-label">Range: </span>
+        ${range}
+      </p>
+      <p class="spell-components">
+        <span class="spell-label">Components: </span>
+        ${components}
+      </p>
+      <p class="spell-duration">
+        <span class="spell-label">Duration: </span>
+        ${duration}
+      </p>
+      <div class="spell-desc">
+        ${desc}
+      </div>
+    </div>
+  </div>
+  `;
   // Set HTML to constructed HTML
   return spellHTML;
-}
-
-// Accepts a JSON full of data representing a collection of
-// objects to search through by name, using the user's search
-// input to filter what is returned.
-// This only returns indexes, so that these indexes can be used
-// to make requests to the API for detailed spell data.
-const getSearchIndexes = (searchContainer,searchTerm) => {
-  let indexes = [];
-  // For each item in the JSON
-  $(searchContainer).each(function(i) {
-    // Get the name of the object
-    const $name = $(this)[0].name;
-    // Compare the name to the search term, and
-    // add it to the list of relative indexes to be returned
-    // if the searchterm is found within the name.
-    if(strContains($name,searchTerm)) {
-      // The JSON's data is zero-indexed, but the API
-      // is not, so add one to get the right index.
-      indexes[indexes.length] = (i + 1);
-    }
-  });
-  return indexes;
 }
 
 // Uses the indexes of spells returned by getSearchIndexes to
 // build HTML content using the responseJSONs
 const getSearchResults = (searchContainer,searchTerm,func) => {
-  // Get the relative spell indexes for making detailed API
-  // spell requests
-  const indexes = getSearchIndexes(searchContainer,searchTerm)
-  // If no spells were found, inform the user
-  if(indexes.length == 0) {
+  // Get the relevant spells based on user searchterm
+  const spellsFound = searchContainer.filter(spell => strContains(spell.name,searchTerm));
+  // If there's no spells found, report that to the user
+  if(spellsFound.length == 0) {
     $spellDisplay.html("No results Found");
-  } else {
-    let htmlData = "";
-    // For each relevant index
-    $(indexes).each(function(i) {
-      $.ajax({
-          // Specific spell url
-          url: $dndAPI + $spells+ indexes[i],
-          mimeType: "text/html; charset=UTF-8",
-          success: function(result) {
-            // Add formatted spell data to the running html string
-            htmlData += func($.parseJSON(result));
-          },
-          fail: function() {
-            // On failure, add an error message to the html string
-            htmlData += "<br>ERROR<br>";
-          },
-          complete: function() {
-            // When each result returns, set the HTML and text alignment
-            $spellDisplay.html(htmlData).css("text-align", "left");
-          }
-      });
-    });
+    return;
   }
+  let htmlData = "";
+  // Loop over spells
+  spellsFound.forEach(spell => {
+    const result = [];
+    fetch(spell.url)
+      .then(blob => blob.json(),
+            () => htmlData += "<br>ERROR<br>")
+      .then(data => htmlData += func(data),
+            () => htmlData += "<br>ERROR<br>")
+      .then(() => $spellDisplay.html(htmlData).css("text-align", "left"));
+  });
 }
 
 $(document).ready(function() {
@@ -195,21 +166,44 @@ $(document).ready(function() {
     // Also change text alignment to center
     $spellDisplay.html("Searching...").css("text-align", "center");
     // Grab all the spells from the API as a list
-    $.ajax({
-        url: $dndAPI + $spells,
-        mimeType: "text/html; charset=UTF-8",
-        success: function(result) {
-          // On success, pass the spells to the search results function
-          // along with the search input text and the function that will
-          // ultimately format the data and add it to the page.
-          getSearchResults($.parseJSON(result).results,
-                          $spellSearchInput.val(),
-                          printSpell);
-        },
-        fail: function() {
-          // If the request to the API fails, print this detailed error message
-          $spellDisplay.html("ERROR");
-        }
-    });
+    getSearchResults(spells, $spellSearchInput.val(), printSpell);
   });
 });
+
+// -----------------------------------------------------
+// FUTURE - USE FOR SEARCH HELP
+/*
+function findMatches(searchTerm, cities){
+  return cities.filter(place => {
+    const regex = new RegExp(searchTerm, `gi`);
+    return place.city.match(regex) || place.state.match(regex);
+  });
+}
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function displayMatches() {
+  const matchArr = findMatches(this.value, cities);
+  const html = matchArr.map(place => {
+    const regex = new RegExp(this.value, `gi`);
+    const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
+    const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
+    return `
+    <li>
+      <span class="name">${cityName}, ${stateName}</span>
+      <span class="population">${numberWithCommas(place.population)}</span>
+    </li>
+    `
+  }).join(``);
+  suggestions.innerHTML = html;
+}
+
+const searchInput = document.querySelector(`.search`);
+const suggestions = document.querySelector(`.suggestions`);
+
+searchInput.addEventListener(`change`, displayMatches)
+searchInput.addEventListener(`keyup`, displayMatches)
+*/
+// ------------------------------------------------------

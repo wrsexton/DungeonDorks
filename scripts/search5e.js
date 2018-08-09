@@ -13,6 +13,7 @@ const $spellSearchButton = $('#spell-search-btn')
 const $spellDisplay = $('#spell-display');
 const $spellBookContent = $('#spell-book-content');
 const $spellSearchInput = $('#spell-search');
+const $spellSearchSuggestions = $('#spell-search-suggestions');
 
 // Turns 1 into 1st, 2 into 2nd, etc.
 // Only works on numbers 0-99
@@ -29,6 +30,14 @@ const ordinal_suffix_of = (i) => {
   }
   return i + "th";
 }
+
+// User RegExp?  TODO
+// function findMatches(searchTerm, list){
+//   return list.filter(item => {
+//     const regex = new RegExp(searchTerm, `gi`);
+//     return place.city.match(regex) || place.state.match(regex);
+//   });
+// }
 
 // Checks to see if 'str' contains 'contains'
 // (returns true if it does)
@@ -151,6 +160,25 @@ const getSearchResults = (searchContainer,searchTerm,func) => {
   });
 }
 
+function displaySpellSuggestions() {
+  if(this.value == ``) {
+    $spellSearchSuggestions.html(``);
+    return;
+  }
+  const spellsFound = spells.filter(spell => strContains(spell.name,this.value));
+  const html = spellsFound.map(spell => {
+    const regex = new RegExp(this.value, `gi`);
+    const spellName = spell.name.replace(regex, `<span class="hl">${this.value}</span>`);
+    return `
+    <li>
+      <span class="name">${spellName}</span>
+    </li>
+    `
+  }).join(``);
+  console.log(html);
+  $spellSearchSuggestions.html(html);
+}
+
 $(document).ready(function() {
   // When the main spellbook button is clicked, hide or show the
   // search interface.
@@ -162,48 +190,14 @@ $(document).ready(function() {
   $spellSearchButton.click(function(e) {
     // Prevent this button from reloading the page
     e.preventDefault();
+    $spellSearchSuggestions.html(``);
     // Put up some temporary text while the routine searches.
     // Also change text alignment to center
     $spellDisplay.html("Searching...").css("text-align", "center");
     // Grab all the spells from the API as a list
     getSearchResults(spells, $spellSearchInput.val(), printSpell);
   });
+
+  $spellSearchInput.on(`change`, displaySpellSuggestions)
+  $spellSearchInput.on(`keyup`, displaySpellSuggestions)
 });
-
-// -----------------------------------------------------
-// FUTURE - USE FOR SEARCH HELP
-/*
-function findMatches(searchTerm, cities){
-  return cities.filter(place => {
-    const regex = new RegExp(searchTerm, `gi`);
-    return place.city.match(regex) || place.state.match(regex);
-  });
-}
-
-function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-}
-
-function displayMatches() {
-  const matchArr = findMatches(this.value, cities);
-  const html = matchArr.map(place => {
-    const regex = new RegExp(this.value, `gi`);
-    const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
-    const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
-    return `
-    <li>
-      <span class="name">${cityName}, ${stateName}</span>
-      <span class="population">${numberWithCommas(place.population)}</span>
-    </li>
-    `
-  }).join(``);
-  suggestions.innerHTML = html;
-}
-
-const searchInput = document.querySelector(`.search`);
-const suggestions = document.querySelector(`.suggestions`);
-
-searchInput.addEventListener(`change`, displayMatches)
-searchInput.addEventListener(`keyup`, displayMatches)
-*/
-// ------------------------------------------------------

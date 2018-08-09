@@ -357,6 +357,29 @@ header {
   align-self: center;
 }
 
+#spell-search-suggestions {
+  margin-top: 0.2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#spell-search-suggestions li  {
+  text-align: center;
+  list-style: none;
+  background-color: white;
+  width: 75%;
+  border-bottom: 0.1em solid black;
+}
+
+#spell-search-suggestions li .name  {
+  color: black;
+}
+
+#spell-search-suggestions li .name .hl {
+  background-color: yellow;
+}
+
 .spell {
   display: flex;
   flex-direction: column;

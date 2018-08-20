@@ -1,5 +1,5 @@
 // API url
-const $dndAPI = 'http://www.dnd5eapi.co/api/';
+const $dndAPI = 'https://www.dnd5eapi.co/api/';
 
 // Get full spell list from API
 const spells = [];

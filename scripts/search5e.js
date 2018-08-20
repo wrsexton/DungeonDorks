@@ -1,12 +1,6 @@
 // API url
 const $dndAPI = 'http://www.dnd5eapi.co/api/';
 
-// Get full spell list from API
-const spells = [];
-fetch($dndAPI + 'spells/')
-  .then(blob => blob.json())
-  .then(data => spells.push(...data.results));
-
 // Spellbook elements
 const $spellBookButton = $('#spell-book-dropdown');
 const $spellSearchButton = $('#spell-search-btn')
@@ -14,6 +8,13 @@ const $spellDisplay = $('#spell-display');
 const $spellBookContent = $('#spell-book-content');
 const $spellSearchInput = $('#spell-search');
 const $spellSearchSuggestions = $('#spell-search-suggestions');
+
+// Get full spell list from API
+const spells = [];
+fetch($dndAPI + 'spells/')
+  .catch(() => $(".spell-book").hide())
+  .then(blob => blob.json())
+  .then(data => spells.push(...data.results));
 
 // Turns 1 into 1st, 2 into 2nd, etc.
 // Only works on numbers 0-99
